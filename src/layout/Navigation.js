@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
 import { NavLink } from 'react-router-dom';
+// @ts-ignore
 import logo from '../logo.svg';
 
 export default class Navigation extends Component {
@@ -13,8 +14,9 @@ export default class Navigation extends Component {
           <Nav className="mr-auto">
             <Nav.Link as={NavLink} to="/home">Home</Nav.Link>
             <Nav.Link as={NavLink} to="/page2">Page2</Nav.Link>
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+            <Nav.Link as={NavLink} to="/x-o">X-O</Nav.Link>
+            <NavDropdown title="RxJS" id="basic-nav-dropdown">
+              <NavDropdown.Item as={NavLink} to="/results">Results</NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
                 Another action
               </NavDropdown.Item>
