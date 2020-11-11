@@ -1,21 +1,21 @@
 // eslint-disable-next-line
 import React, { useEffect } from "react";
-import { from, fromEvent } from "rxjs";
+import { fromEvent } from "rxjs";
 import { ajax } from "rxjs/ajax";
-import { filter, map, pluck, timeInterval } from "rxjs/operators";
+import { map, pluck, timeInterval } from "rxjs/operators";
 // eslint-disable-next-line
-import { observer } from "../utils/start";
+// import { observer } from "../utils/start";
 
-const num$ = from([-2, -1, 0, 1, 2]);
+// const num$ = from([-2, -1, 0, 1, 2]);
 
 export const Results = () => {
   useEffect(() => {
-    num$
-      .pipe(
-        filter((num) => num > 0),
-        map((positiveNum) => positiveNum * 3)
-      )
-      .subscribe(observer);
+    // num$
+    //   .pipe(
+    //     filter((num) => num > 0),
+    //     map((positiveNum) => positiveNum * 3)
+    //   )
+    //   .subscribe(observer);
 
     const result = document.getElementById("result");
     const okButton = document.getElementById("okButton");
