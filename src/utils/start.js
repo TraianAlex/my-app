@@ -4,6 +4,8 @@ import { Observable, from, fromEvent } from "rxjs";
 import { ajax } from "rxjs/ajax";
 import { filter, map, pluck, timeInterval } from "rxjs/operators";
 
+import { allBooks } from "./data";
+
 //#region Observable examples video 2, 3 Creating Observables
 let bookArray = [
   { bookID: 1, title: "Goodnight Moon" },
@@ -101,6 +103,18 @@ clicks$
 //#endregion 
 
 //#region video 4 Subscribing to Observables with Observers
+let books$ = from(allBooks);
 
+// let booksObserver = {
+//   next: book => console.log(`Title: ${book.title}`),
+//   error: err => console.log(`ERROR: ${err}`),
+//   complete: () => console.log(`All done!`)
+// };
+
+books$.subscribe(
+  book => console.log(`Title: ${book.title}`),
+  err => console.log(`ERROR: ${err}`),
+  () => console.log(`All done!`)
+);
 
 //#endregion
