@@ -2,9 +2,9 @@ import React, { useEffect, useMemo, useState } from "react";
 import { fromEvent } from "rxjs";
 import { ajax } from "rxjs/ajax";
 import { map, pluck, timeInterval } from "rxjs/operators";
-//import { useData } from "../Providers/DataProvider";
-import { LocalDataProvider } from "../Providers/LocalDataProvider";
-import { ResultModal } from "../components/Modal";
+//import { useData } from "../common/hooks/Providers/DataProvider";
+import { LocalDataProvider } from "../common/hooks/Providers/LocalDataProvider";
+import { ResultModal } from "../common/components/Modal";
 import { modelObs } from "./models/time-names";
 
 export const Results = () => {

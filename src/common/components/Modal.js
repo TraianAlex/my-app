@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
-import { useData } from "../Providers/DataProvider";
-import { useLocalData } from "../Providers/LocalDataProvider";
+import { useData } from "../hooks/Providers/DataProvider";
+import { useLocalData } from "../hooks/Providers/LocalDataProvider";
 // @ts-ignore
 import modal from "./Modal.module.css";
 
