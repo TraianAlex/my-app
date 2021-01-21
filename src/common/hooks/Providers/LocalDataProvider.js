@@ -1,4 +1,4 @@
-import React, { createContext, useContext, useMemo, useState } from "react";
+import React, { createContext, useContext, useMemo } from "react";
 
 const LocalDataContext = createContext({});
 
@@ -10,9 +10,8 @@ const useLocalData = () => {
   return context;
 };
 
-const LocalDataProvider = (props) => {
-  const [, localSetData] = useState({});
-  const value = useMemo(() => [props.getData, localSetData], [props.getData]);
+const LocalDataProvider = ({ getData, ...props }) => {
+  const value = useMemo(() => [getData], [getData]);
   return <LocalDataContext.Provider value={value} {...props} />;
 };
 

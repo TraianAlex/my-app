@@ -4,8 +4,8 @@ import "./App.css";
 import Navigation from "./layout/Navigation";
 import Page1 from "./components/Page1";
 import Page2 from "./components/Page2";
-import { Results } from "./components/rxjs/Results";
-import AppXo from "./components/x-o";
+import { Results } from "./rxjs/Results";
+import AppXo from "./games/x-o";
 import { DataProvider } from "./Providers/DataProvider";
 
 function App() {

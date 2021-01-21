@@ -3,9 +3,9 @@ import { fromEvent } from "rxjs";
 import { ajax } from "rxjs/ajax";
 import { map, pluck, timeInterval } from "rxjs/operators";
 //import { useData } from "../Providers/DataProvider";
-import { LocalDataProvider } from "../../Providers/LocalDataProvider";
-import { ResultModal } from "../Modal";
-import { modelObs } from "../../models/time-names";
+import { LocalDataProvider } from "../Providers/LocalDataProvider";
+import { ResultModal } from "../components/Modal";
+import { modelObs } from "./models/time-names";
 
 export const Results = () => {
   const [timeLocation, setTimeLocation] = useState("");
