@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 // @ts-ignore
-import classes from "./Page1.module.css";
+import "./Page1.css";
 
 export default class Page1 extends Component {
   render() {
-    return <div className={classes.Test}>Page1</div>;
+    return <div className='test-page1'>Page1</div>;
   }
 }

@@ -4,7 +4,7 @@
 
 import * as React from "react";
 // @ts-ignore
-import classes from "./x-o.module.css";
+import "./x-o.scss";
 
 function Board() {
   const [squares, setSquares] = React.useState(Array(9).fill(null));
@@ -29,7 +29,7 @@ function Board() {
 
   function renderSquare(i) {
     return (
-      <button className={classes.square} onClick={() => selectSquare(i)}>
+      <button className="square" onClick={() => selectSquare(i)}>
         {squares[i]}
       </button>
     );
@@ -37,7 +37,7 @@ function Board() {
 
   return (
     <div>
-      <div className={classes.status}>{status}</div>
+      <div className="status">{status}</div>
       <div className="board-row">
         {renderSquare(0)}
         {renderSquare(1)}
@@ -53,7 +53,7 @@ function Board() {
         {renderSquare(7)}
         {renderSquare(8)}
       </div>
-      <button className={classes.restart} onClick={restart}>
+      <button className="restart" onClick={restart}>
         restart
       </button>
     </div>
@@ -62,8 +62,8 @@ function Board() {
 
 function Game() {
   return (
-    <div className={classes.game}>
-      <div className="game-board">
+    <div className="game-xo">
+      <div className="game-xo-board">
         <Board />
       </div>
     </div>
