@@ -25,6 +25,14 @@ export default class Navigation extends Component {
                 Separated link
               </NavDropdown.Item>
             </NavDropdown>
+            <NavDropdown title="Apps" id="basic-nav-dropdown">
+              <NavDropdown.Item as={NavLink} to="/github-card">Github Card</NavDropdown.Item>
+              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
+              <NavDropdown.Divider />
+              <NavDropdown.Item href="#action/3.4">
+                Separated link
+              </NavDropdown.Item>
+            </NavDropdown>
             <NavDropdown title="Games" id="basic-nav-dropdown">
               <NavDropdown.Item as={NavLink} to="/x-o">X-O</NavDropdown.Item>
               <NavDropdown.Item as={NavLink} to="/star-match">

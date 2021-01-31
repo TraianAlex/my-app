@@ -2,9 +2,9 @@
 // https://codesandbox.io/s/sleepy-browser-gftkp?file=/src/utils.js
 // http://localhost:3000/isolated/final/04.js
 
-import * as React from "react";
+import * as React from 'react';
 // @ts-ignore
-import "./x-o.scss";
+import './x-o.scss';
 
 function Board() {
   const [squares, setSquares] = React.useState(Array(9).fill(null));
@@ -79,11 +79,9 @@ function calculateStatus(winner, squares, nextValue) {
 }
 
 function calculateNextValue(squares) {
-  const xSquaresCount =
-    squares.filter((r) => r === "X").length;
-  const oSquaresCount =
-    squares.filter((r) => r === "O").length;
-  return oSquaresCount === xSquaresCount ? "X" : "O";
+  const xSquaresCount = squares.filter((r) => r === 'X').length;
+  const oSquaresCount = squares.filter((r) => r === 'O').length;
+  return oSquaresCount === xSquaresCount ? 'X' : 'O';
 }
 
 function calculateWinner(squares) {
