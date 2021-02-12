@@ -9,17 +9,19 @@ export class GitHubCard extends Component {
     profiles: [],
   };
   addNewProfile = (profileData) => {
-  	this.setState(prevState => ({
-    	profiles: [...prevState.profiles, profileData],
+    this.setState((prevState) => ({
+      profiles: [...prevState.profiles, profileData],
     }));
   };
-	render() {
-  	return (
-    	<div className="github-card">
-    	  <div className="header">The GitHub Cards App</div>
+  render() {
+    return (
+      <div className="github-card">
+        <div className="header">The GitHub Cards App</div>
         <Form onSubmit={this.addNewProfile} />
         <CardList profiles={this.state.profiles} />
-    	</div>
+      </div>
     );
-  }	
+  }
 }
+
+// https://jscomplete.com/playground/rgs2.7
