@@ -3,7 +3,7 @@ import Modal from "react-modal";
 import { useData } from "../hooks/Providers/DataProvider";
 import { useLocalData } from "../hooks/Providers/LocalDataProvider";
 // @ts-ignore
-import modal from "./Modal.module.css";
+import "./ResultModal.scss";
 
 Modal.setAppElement("#root");
 
@@ -36,8 +36,8 @@ export const ResultModal = (props) => {
   };
 
   return (
-    <div className={modal.modal}>
-      <button type="button" className={modal.modal_button} onClick={openModal}>
+    <div className='modal'>
+      <button type="button" className='modal_button' onClick={openModal}>
         Open Modal
       </button>
       <Modal
@@ -48,7 +48,7 @@ export const ResultModal = (props) => {
       >
         <button
           type="button"
-          className={modal.modal_button}
+          className='.modal_button'
           onClick={closeModal}
         >
           Close

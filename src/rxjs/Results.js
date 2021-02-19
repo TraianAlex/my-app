@@ -4,8 +4,9 @@ import { ajax } from "rxjs/ajax";
 import { map, pluck, timeInterval } from "rxjs/operators";
 //import { useData } from "../common/hooks/Providers/DataProvider";
 import { LocalDataProvider } from "../common/hooks/Providers/LocalDataProvider";
-import { ResultModal } from "../common/components/Modal";
+import { ResultModal } from "../common/components/ResultModal";
 import { modelObs } from "./models/time-names";
+import './Results.scss';
 
 export const Results = () => {
   const [timeLocation, setTimeLocation] = useState("");
@@ -56,7 +57,7 @@ export const Results = () => {
   }, [names, timeLocation, modelData]);
 
   return (
-    <div>
+    <div className='results'>
       <LocalDataProvider getData={getData}>
         RxJS results:
         <button id="okButton">OK</button>
