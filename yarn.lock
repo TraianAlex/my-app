@@ -3013,9 +3013,9 @@ cacache@^12.0.2:
     move-concurrently "^1.0.1"
     promise-inflight "^1.0.1"
     rimraf "^2.6.3"
-    ssri "^6.0.1"
+    ssri "^8.0.1"
     unique-filename "^1.1.1"
-    y18n "^4.0.0"
+    y18n "^5.0.5"
 
 cacache@^13.0.1:
   version "13.0.1"
@@ -3038,7 +3038,7 @@ cacache@^13.0.1:
     p-map "^3.0.0"
     promise-inflight "^1.0.1"
     rimraf "^2.7.1"
-    ssri "^7.0.0"
+    ssri "^8.0.1"
     unique-filename "^1.1.1"
 
 cache-base@^1.0.1:
@@ -5810,9 +5810,9 @@ ignore@^4.0.6:
   resolved "https://registry.npmjs.org/ignore/-/ignore-4.0.6.tgz"
   integrity sha512-cyFDKrqc/YdcWFniJhzI42+AzS+gNwmUzOSFcRCQYwySuBBBy/KjuxWLZ/FHEH6Moq1NizMOBWyTcv8O4OZIMg==
 
-immer@1.10.0:
+immer@8.0.1:
   version "1.10.0"
-  resolved "https://registry.npmjs.org/immer/-/immer-1.10.0.tgz"
+  resolved "https://registry.npmjs.org/immer/-/immer-8.0.1.tgz"
   integrity sha512-O3sR1/opvCDGLEVcvrGTMtLac8GJ5IwZC4puPrLuRj3l7ICKvkmA0vGuU9OW8mV9WIBRnaxp5GJh9IEAaNOoYg==
 
 import-cwd@^2.0.0:
@@ -6280,9 +6280,9 @@ is-string@^1.0.5:
   resolved "https://registry.npmjs.org/is-string/-/is-string-1.0.5.tgz"
   integrity sha512-buY6VNRjhQMiF1qWDouloZlQbRhDPCebwxSjxMjxgemYT46YMd2NR0/H+fBhEfWX4A/w9TBJ+ol+okqJKFE6vQ==
 
-is-svg@^3.0.0:
+is-svg@^4.2.2:
   version "3.0.0"
-  resolved "https://registry.npmjs.org/is-svg/-/is-svg-3.0.0.tgz"
+  resolved "https://registry.npmjs.org/is-svg/-/is-svg-4.2.2.tgz"
   integrity sha512-gi4iHK53LR2ujhLVVj+37Ykh9GLqYHX6JOVXbLAucaG/Cqw9xwdFOjDM2qeifLs1sF1npXXFvDu0r5HNgCMrzQ==
   dependencies:
     html-comment-regex "^1.1.0"
@@ -9102,7 +9102,7 @@ postcss-svgo@^4.0.2:
   resolved "https://registry.npmjs.org/postcss-svgo/-/postcss-svgo-4.0.2.tgz"
   integrity sha512-C6wyjo3VwFm0QgBy+Fu7gCYOkCmgmClghO+pjcxvrcBKtiKt0uCF+hvbMO1fyv5BMImRK90SMb+dwUnfbGd+jw==
   dependencies:
-    is-svg "^3.0.0"
+    is-svg "^4.2.2"
     postcss "^7.0.0"
     postcss-value-parser "^3.0.0"
     svgo "^1.0.0"
@@ -9477,7 +9477,7 @@ react-dev-utils@^10.2.0:
     global-modules "2.0.0"
     globby "8.0.2"
     gzip-size "5.1.1"
-    immer "1.10.0"
+    immer "8.0.1"
     inquirer "7.0.4"
     is-root "2.1.0"
     loader-utils "1.2.3"
@@ -10211,9 +10211,9 @@ send@0.17.1:
     range-parser "~1.2.1"
     statuses "~1.5.0"
 
-serialize-javascript@^2.1.2:
+serialize-javascript@^3.1.0:
   version "2.1.2"
-  resolved "https://registry.npmjs.org/serialize-javascript/-/serialize-javascript-2.1.2.tgz"
+  resolved "https://registry.npmjs.org/serialize-javascript/-/serialize-javascript-3.1.0.tgz"
   integrity sha512-rs9OggEUF0V4jUSecXazOYsLfu7OGK2qIn3c7IPBiffz32XniEp/TX9Xmc9LQfK2nQ2QKHvZ2oygKUGU0lG4jQ==
 
 serve-index@^1.9.1:
@@ -10549,16 +10549,16 @@ sshpk@^1.7.0:
     safer-buffer "^2.0.2"
     tweetnacl "~0.14.0"
 
-ssri@^6.0.1:
-  version "6.0.1"
-  resolved "https://registry.npmjs.org/ssri/-/ssri-6.0.1.tgz"
+ssri@^8.0.1:
+  version "8.0.1"
+  resolved "https://registry.npmjs.org/ssri/-/ssri-8.0.1.tgz"
   integrity sha512-3Wge10hNcT1Kur4PDFwEieXSCMCJs/7WvSACcrMYrNp+b8kDL1/0wJch5Ni2WrtwEa2IO8OsVfeKIciKCDx/QA==
   dependencies:
     figgy-pudding "^3.5.1"
 
-ssri@^7.0.0:
+ssri@^8.0.1:
   version "7.1.0"
-  resolved "https://registry.npmjs.org/ssri/-/ssri-7.1.0.tgz"
+  resolved "https://registry.npmjs.org/ssri/-/ssri-8.0.1.tgz"
   integrity sha512-77/WrDZUWocK0mvA5NTRQyveUf+wsrIc6vyrxpS8tVvYBcX215QbafrJR3KtkpskIzoFLqqNuuYQvxaMjXJ/0g==
   dependencies:
     figgy-pudding "^3.5.1"
@@ -10912,7 +10912,7 @@ terser-webpack-plugin@2.3.4:
     jest-worker "^25.1.0"
     p-limit "^2.2.2"
     schema-utils "^2.6.4"
-    serialize-javascript "^2.1.2"
+    serialize-javascript "^3.1.0"
     source-map "^0.6.1"
     terser "^4.4.3"
     webpack-sources "^1.4.3"
@@ -10926,7 +10926,7 @@ terser-webpack-plugin@^1.4.3:
     find-cache-dir "^2.1.0"
     is-wsl "^1.1.0"
     schema-utils "^1.0.0"
-    serialize-javascript "^2.1.2"
+    serialize-javascript "^3.1.0"
     source-map "^0.6.1"
     terser "^4.1.2"
     webpack-sources "^1.4.0"
@@ -11863,9 +11863,9 @@ xtend@^4.0.0, xtend@~4.0.1:
   resolved "https://registry.npmjs.org/xtend/-/xtend-4.0.2.tgz"
   integrity sha512-LKYU1iAXJXUgAXn9URjiu+MWhyUXHsvfp7mcuYm9dSUKK0/CjtrUwFAxD82/mCWbtLsGjFIad0wIsod4zrTAEQ==
 
-y18n@^4.0.0:
+y18n@^5.0.5:
   version "4.0.0"
-  resolved "https://registry.npmjs.org/y18n/-/y18n-4.0.0.tgz"
+  resolved "https://registry.npmjs.org/y18n/-/y18n-5.0.5.tgz"
   integrity sha512-r9S/ZyXu/Xu9q1tYlpsLIsa3EeLXXk0VwlxqTcFRfg9EhMW+17kbt9G0NrgCmhGb5vT2hyhJZLfDGx+7+5Uj/w==
 
 yallist@^2.1.2:
@@ -11911,5 +11911,5 @@ yargs@^13.3.0, yargs@^13.3.2:
     set-blocking "^2.0.0"
     string-width "^3.0.0"
     which-module "^2.0.0"
-    y18n "^4.0.0"
+    y18n "^5.0.5"
     yargs-parser "^13.1.2"
