@@ -28,6 +28,7 @@ export default class Navigation extends Component {
             <NavDropdown title="Apps" id="basic-nav-dropdown">
               <NavDropdown.Item as={NavLink} to="/github-card">Github Card</NavDropdown.Item>
               <NavDropdown.Item as={NavLink} to="/meal-tracker">Meal Tracker</NavDropdown.Item>
+              <NavDropdown.Item as={NavLink} to="/members-only">Members Only</NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">
                 Separated link

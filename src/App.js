@@ -15,6 +15,9 @@ import AppXo from './games/x-o/x-o';
 import { DataProvider } from './common/hooks/Providers/DataProvider';
 import { StarMatch } from './games/star-match/StarMatch';
 import { NotFoundPage } from './common/components/NotFoundPage';
+import { CreateGroupPage, GroupPage, GroupsListPage } from './apps/members-only/groups';
+import { SignInPage } from './apps/members-only/auth';
+import { NavMembers } from './apps/members-only/navigation';
 
 function App() {
   return (
@@ -32,7 +35,7 @@ function App() {
               <Route path="/meal-tracker">
                 <BrowserRouter>
                   <NavMeal />
-                  <Route path="/meal-tracker/home" component={MealTracker} exact />
+                  <Route path="/meal-tracker" component={MealTracker} exact />
                   <Route
                     path="/meal-tracker/add-ingredient"
                     component={AddIngredientPage}
@@ -44,6 +47,15 @@ function App() {
                     component={ShoppingListPage}
                     exact
                   />
+                </BrowserRouter>
+              </Route>
+              <Route path="/members-only">
+                <BrowserRouter>
+                  <NavMembers />
+                  <Route path="/members-only" component={GroupsListPage} exact />
+                  <Route path="/members-only/groups/:id" component={GroupPage} />
+                  <Route path="/members-only/sign-in" component={SignInPage} />
+                  <Route path="/members-only/create-group" component={CreateGroupPage} />
                 </BrowserRouter>
               </Route>
               <Route path="/x-o" component={AppXo} exact />

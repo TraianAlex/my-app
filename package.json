@@ -6,6 +6,7 @@
     "axios": "^0.21.1",
     "bootstrap": "^4.4.1",
     "camelcase": "^5.3.1",
+    "firebase": "^8.2.10",
     "fs-extra": "^8.1.0",
     "identity-obj-proxy": "3.0.0",
     "react": "^16.13.1",
@@ -144,5 +145,8 @@
     "presets": [
       "react-app"
     ]
+  },
+  "resolutions": { 
+    "@babel/preset-env": "7.5.5" 
   }
 }
