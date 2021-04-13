@@ -1,11 +1,11 @@
-import React, { useEffect, useState } from "react";
-import Modal from "react-modal";
-import { useData } from "../hooks/Providers/DataProvider";
-import { useLocalData } from "../hooks/Providers/LocalDataProvider";
+import React, { useEffect, useState } from 'react';
+import Modal from 'react-modal';
+import { useData } from '../hooks/Providers/DataProvider';
+import { useLocalData } from '../hooks/Providers/LocalDataProvider';
 // @ts-ignore
-import "./ResultModal.scss";
+import './ResultModal.scss';
 
-Modal.setAppElement("#root");
+Modal.setAppElement('#root');
 
 export const ResultModal = (props) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
@@ -30,14 +30,14 @@ export const ResultModal = (props) => {
 
   const customStyles = {
     content: {
-      top: "10%",
-      left: "30%",
+      top: '10%',
+      left: '30%',
     },
   };
 
   return (
-    <div className='modal'>
-      <button type="button" className='modal_button' onClick={openModal}>
+    <div className="modal">
+      <button type="button" className="modal_button" onClick={openModal}>
         Open Modal
       </button>
       <Modal
@@ -46,11 +46,7 @@ export const ResultModal = (props) => {
         contentLabel="Demo Modal"
         style={customStyles}
       >
-        <button
-          type="button"
-          className='.modal_button'
-          onClick={closeModal}
-        >
+        <button type="button" className=".modal_button" onClick={closeModal}>
           Close
         </button>
         <h1>Modal Header</h1>
@@ -71,7 +67,7 @@ export const ResultModal = (props) => {
               ? data.names.map((value, index) => (
                   <p key={index}>{value.name}</p>
                 ))
-              : "")}
+              : '')}
         </div>
         <div>
           {localData &&
@@ -79,7 +75,7 @@ export const ResultModal = (props) => {
               ? localData.names.map((value, index) => (
                   <p key={index}>{value.name}</p>
                 ))
-              : "")}
+              : '')}
         </div>
         <div>
           {/* <pre>{data && JSON.stringify(data, null, 2)}</pre> */}
