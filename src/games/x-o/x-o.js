@@ -57,16 +57,6 @@ const Board = () => {
   );
 };
 
-const Game = () => {
-  return (
-    <div className="game-xo">
-      <div className="game-xo-board">
-        <Board />
-      </div>
-    </div>
-  );
-};
-
 const calculateStatus = (winner, squares, nextValue) => {
   return winner
     ? `Winner: ${winner}`
@@ -101,6 +91,12 @@ const calculateWinner = (squares) => {
   return null;
 };
 
-const AppXo = () => <Game />;
-
-export default AppXo;
+export const GameXO = () => {
+  return (
+    <div className="game-xo">
+      <div className="game-xo-board">
+        <Board />
+      </div>
+    </div>
+  );
+};

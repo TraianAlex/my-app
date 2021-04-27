@@ -1,7 +1,7 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
-import Navigation from './layout/Navigation';
+import { Navigation } from './layout/Navigation';
 import { Home } from './common/components/Home';
 import { Page2 } from './common/components/Page2';
 import { Results } from './rxjs/Results';
@@ -11,7 +11,7 @@ import { HomePage as MealTracker } from './apps/meal-traker/home';
 import { AddIngredientPage } from './apps/meal-traker/ingredients';
 import { RecipeSearchPage } from './apps/meal-traker/recipes';
 import { ShoppingListPage } from './apps/meal-traker/shopping-list';
-import AppXo from './games/x-o/x-o';
+import { GameXO } from './games/x-o/x-o';
 import { DataProvider } from './common/hooks/Providers/DataProvider';
 import { StarMatch } from './games/star-match/StarMatch';
 import { NotFoundPage } from './common/components/NotFoundPage';
@@ -23,7 +23,7 @@ import {
 import { SignInPage } from './apps/members-only/auth';
 import { NavMembers } from './apps/members-only/navigation';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <DataProvider>
@@ -76,7 +76,7 @@ function App() {
                   />
                 </BrowserRouter>
               </Route>
-              <Route path="/x-o" component={AppXo} exact />
+              <Route path="/x-o" component={GameXO} exact />
               <Route path="/star-match" component={StarMatch} exact />
               <Route component={NotFoundPage} />
             </Switch>
@@ -85,6 +85,6 @@ function App() {
       </DataProvider>
     </div>
   );
-}
+};
 
 export default App;
