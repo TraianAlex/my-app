@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Navbar, Nav, NavDropdown, Form, FormControl, Button } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 import { NavLink } from 'react-router-dom';
 // @ts-ignore
 import logo from '../logo.svg';
@@ -8,7 +9,9 @@ export default class Navigation extends Component {
   render() {
     return (
       <Navbar bg="light" expand="lg" fixed={'top'}>
-        <Navbar.Brand href="#home"><img src={logo} className="App-logo" alt="logo" /></Navbar.Brand>
+        <LinkContainer to="/">
+          <Navbar.Brand><img src={logo} className="App-logo" alt="logo" /></Navbar.Brand>
+        </LinkContainer>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">

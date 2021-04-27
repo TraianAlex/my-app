@@ -2,25 +2,18 @@ import React, { useEffect, useState } from "react";
 import Modal from "react-modal";
 import { useData } from "../hooks/Providers/DataProvider";
 import { useLocalData } from "../hooks/Providers/LocalDataProvider";
-// @ts-ignore
 import "./ResultModal.scss";
 
 Modal.setAppElement("#root");
 
 export const ResultModal = (props) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
-  // @ts-ignore
   const [data] = useData();
-  // @ts-ignore
   const [localData] = useLocalData();
 
-  const openModal = () => {
-    setModalIsOpen(true);
-  };
+  const openModal = () => setModalIsOpen(true);
 
-  const closeModal = () => {
-    setModalIsOpen(false);
-  };
+  const closeModal = () => setModalIsOpen(false);
 
   useEffect(() => {
     if (Object.keys(data).length > 0 || Object.keys(localData).length > 0) {
@@ -89,5 +82,3 @@ export const ResultModal = (props) => {
     </div>
   );
 };
-
-// https://medium.com/javascript-in-plain-english/easiest-way-to-work-with-modals-in-react-1ece66c92ad1

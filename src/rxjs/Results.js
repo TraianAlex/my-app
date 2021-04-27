@@ -11,7 +11,6 @@ import './Results.scss';
 export const Results = () => {
   const [timeLocation, setTimeLocation] = useState("");
   const [names, setNames] = useState([]);
-  // @ts-ignore
   //const [, setData] = useData();
   const [modelData, setModelData] = useState({});
 
