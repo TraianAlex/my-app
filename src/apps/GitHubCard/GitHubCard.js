@@ -1,29 +1,22 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 import { Form } from './Form';
 import { CardList } from './CardList';
 import './GitHubCard.scss';
 // GitHub usernames: gaearon, sophiebits, sebmarkbage, bvaughn
 
-export class GitHubCard extends Component {
-  state = {
-    profiles: [],
-  };
+export const GitHubCard = () => {
+  const [profiles, setProfiles] = useState([]);
 
-  addNewProfile = (profileData) => {
-    this.setState((prevState) => ({
-      profiles: [...prevState.profiles, profileData],
-    }));
-  };
+  const addNewProfile = (profileData) =>
+    setProfiles((prevState) => [...prevState, profileData]);
 
-  render() {
-    return (
-      <div className="github-card">
-        <div className="header">The GitHub Cards App</div>
-        <Form onSubmit={this.addNewProfile} />
-        <CardList profiles={this.state.profiles} />
-      </div>
-    );
-  }
-}
+  return (
+    <div className="github-card">
+      <div className="header">The GitHub Cards App</div>
+      <Form onSubmit={addNewProfile} />
+      <CardList profiles={profiles} />
+    </div>
+  );
+};
 
 // https://jscomplete.com/playground/rgs2.7
