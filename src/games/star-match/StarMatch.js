@@ -1,10 +1,10 @@
-import React, { useState } from "react";
-import { PlayNumber } from "./PlayNumber";
-import { StarsDisplay } from "./StarsDisplay";
-import { PlayAgain } from "./PlayAgain";
-import { utils } from "./utils";
-import { useGameState } from "./use-game-state";
-import "./StarMatch.scss";
+import React, { useState } from 'react';
+import { PlayNumber } from './PlayNumber';
+import { StarsDisplay } from './StarsDisplay';
+import { PlayAgain } from './PlayAgain';
+import { utils } from './utils';
+import { useGameState } from './use-game-state';
+import './StarMatch.scss';
 
 const Game = (props) => {
   const { range, sum } = utils;
@@ -31,24 +31,24 @@ const Game = (props) => {
 
   const candidatesAreWrong = sum(candidateNums) > stars;
   const gameStatus =
-    availableNums.length === 0 ? "won" : secondsLeft === 0 ? "lost" : "active";
+    availableNums.length === 0 ? 'won' : secondsLeft === 0 ? 'lost' : 'active';
 
   const numberStatus = (number) => {
     if (!availableNums.includes(number)) {
-      return "used";
+      return 'used';
     }
     if (candidateNums.includes(number)) {
-      return candidatesAreWrong ? "wrong" : "candidate";
+      return candidatesAreWrong ? 'wrong' : 'candidate';
     }
-    return "available";
+    return 'available';
   };
 
   const onNumberClick = (number, currentStatus) => {
-    if (gameStatus !== "active" || currentStatus === "used") {
+    if (gameStatus !== 'active' || currentStatus === 'used') {
       return;
     }
     const newCandidatesNums =
-      currentStatus === "available"
+      currentStatus === 'available'
         ? [...candidateNums, number]
         : candidateNums.filter((cn) => cn !== number);
 
@@ -72,7 +72,7 @@ const Game = (props) => {
       </div>
       <div className="body">
         <div className="left">
-          {gameStatus !== "active" ? (
+          {gameStatus !== 'active' ? (
             <PlayAgain onClick={props.startNewGame} gameStatus={gameStatus} />
           ) : (
             <StarsDisplay count={stars} />

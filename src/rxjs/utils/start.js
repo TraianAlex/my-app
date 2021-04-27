@@ -1,16 +1,16 @@
 // eslint-disable-next-line
-import { Observable, from, fromEvent } from "rxjs";
+import { Observable, from, fromEvent } from 'rxjs';
 // eslint-disable-next-line
-import { ajax } from "rxjs/ajax";
-import { filter, map, pluck, timeInterval } from "rxjs/operators";
+import { ajax } from 'rxjs/ajax';
+import { filter, map, pluck, timeInterval } from 'rxjs/operators';
 
-import { allBooks } from "./data";
+import { allBooks } from './data';
 
 //#region Observable examples video 2, 3 Creating Observables
 let bookArray = [
-  { bookID: 1, title: "Goodnight Moon" },
-  { bookID: 2, title: "Winnnie-the-Pooh" },
-  { bookID: 2, title: "Where the Wild Thinks Are" },
+  { bookID: 1, title: 'Goodnight Moon' },
+  { bookID: 2, title: 'Winnnie-the-Pooh' },
+  { bookID: 2, title: 'Where the Wild Thinks Are' },
 ];
 let bookObservable$ = from(bookArray);
 bookObservable$
@@ -41,13 +41,13 @@ let num$ = from([-2, -1, 0, 1, 2]);
 export const observer = {
   next: (value) => console.log(value),
   error: (err) => console.log(`ERROR: ${err}`),
-  complete: () => console.log("All done"),
+  complete: () => console.log('All done'),
 };
 //num$.subscribe(observer);
 num$
   .pipe(
     filter((num) => num > 0),
-    map((positiveNum) => positiveNum * 3)
+    map((positiveNum) => positiveNum * 3),
   )
   .subscribe(observer);
 
@@ -64,19 +64,20 @@ let customObservable = Observable.create((subscriber) => {
 });
 num$.subscribe(customObservable); // ?
 
-let clicks$ = fromEvent(document, "click");
+let clicks$ = fromEvent(document, 'click');
 clicks$
   .pipe(
-    pluck("clientX"),
+    pluck('clientX'),
     timeInterval(),
     map(
-      (clickInfo) => `${clickInfo.interval / 1000} seconds (${clickInfo.value})`
-    )
+      (clickInfo) =>
+        `${clickInfo.interval / 1000} seconds (${clickInfo.value})`,
+    ),
   )
   .subscribe(
     (value) => console.log('from start', value),
     (err) => console.log(`ERROR: ${err}`),
-    () => console.log("All done.")
+    () => console.log('All done.'),
   );
 
 // let nums = [2, 4, 6, 9, 10];
@@ -100,7 +101,7 @@ clicks$
 //   (err) => console.log(`ERROR: ${err}`),
 //   () => console.log('All done.')
 // );
-//#endregion 
+//#endregion
 
 //#region video 4 Subscribing to Observables with Observers
 let books$ = from(allBooks);
@@ -112,9 +113,9 @@ let books$ = from(allBooks);
 // };
 
 books$.subscribe(
-  book => console.log(`Title: ${book.title}`),
-  err => console.log(`ERROR: ${err}`),
-  () => console.log(`All done!`)
+  (book) => console.log(`Title: ${book.title}`),
+  (err) => console.log(`ERROR: ${err}`),
+  () => console.log(`All done!`),
 );
 
 //#endregion
