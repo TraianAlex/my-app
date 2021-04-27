@@ -8,11 +8,13 @@ export class GitHubCard extends Component {
   state = {
     profiles: [],
   };
+
   addNewProfile = (profileData) => {
     this.setState((prevState) => ({
       profiles: [...prevState.profiles, profileData],
     }));
   };
+
   render() {
     return (
       <div className="github-card">

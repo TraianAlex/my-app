@@ -3,7 +3,7 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 import Navigation from './layout/Navigation';
 import { Home } from './common/components/Home';
-import Page2 from './common/components/Page2';
+import { Page2 } from './common/components/Page2';
 import { Results } from './rxjs/Results';
 import { GitHubCard } from './apps/GitHubCard/GitHubCard';
 import { NavMeal } from './apps/meal-traker/NavMeal';

@@ -2,38 +2,35 @@
 // https://codesandbox.io/s/sleepy-browser-gftkp?file=/src/utils.js
 // http://localhost:3000/isolated/final/04.js
 
-import * as React from 'react';
-// @ts-ignore
+import React, { useState } from 'react';
 import './x-o.scss';
 
-function Board() {
-  const [squares, setSquares] = React.useState(Array(9).fill(null));
+const Board = () => {
+  const [squares, setSquares] = useState(Array(9).fill(null));
   console.log(squares);
 
   const nextValue = calculateNextValue(squares);
   const winner = calculateWinner(squares);
   const status = calculateStatus(winner, squares, nextValue);
 
-  function selectSquare(square) {
+  const selectSquare = (square) => {
     if (winner || squares[square]) {
       return;
     }
     const squaresCopy = [...squares];
     squaresCopy[square] = nextValue;
     setSquares(squaresCopy);
-  }
+  };
 
-  function restart() {
-    setSquares(Array(9).fill(null));
-  }
+  const restart = () => setSquares(Array(9).fill(null));
 
-  function renderSquare(i) {
+  const renderSquare = (i) => {
     return (
       <button className="square" onClick={() => selectSquare(i)}>
         {squares[i]}
       </button>
     );
-  }
+  };
 
   return (
     <div>
@@ -58,9 +55,9 @@ function Board() {
       </button>
     </div>
   );
-}
+};
 
-function Game() {
+const Game = () => {
   return (
     <div className="game-xo">
       <div className="game-xo-board">
@@ -68,23 +65,23 @@ function Game() {
       </div>
     </div>
   );
-}
+};
 
-function calculateStatus(winner, squares, nextValue) {
+const calculateStatus = (winner, squares, nextValue) => {
   return winner
     ? `Winner: ${winner}`
     : squares.every(Boolean)
     ? `Scratch: Cat's game`
     : `Next player: ${nextValue}`;
-}
+};
 
-function calculateNextValue(squares) {
+const calculateNextValue = (squares) => {
   const xSquaresCount = squares.filter((r) => r === 'X').length;
   const oSquaresCount = squares.filter((r) => r === 'O').length;
   return oSquaresCount === xSquaresCount ? 'X' : 'O';
-}
+};
 
-function calculateWinner(squares) {
+const calculateWinner = (squares) => {
   const lines = [
     [0, 1, 2],
     [3, 4, 5],
@@ -102,10 +99,8 @@ function calculateWinner(squares) {
     }
   }
   return null;
-}
+};
 
-function AppXo() {
-  return <Game />;
-}
+const AppXo = () => <Game />;
 
 export default AppXo;
