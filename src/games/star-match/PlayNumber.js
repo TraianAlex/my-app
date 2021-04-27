@@ -1,5 +1,5 @@
-import React from "react";
-import { colors } from "./utils";
+import React from 'react';
+import { colors } from './utils';
 
 export const PlayNumber = (props) => (
   <button

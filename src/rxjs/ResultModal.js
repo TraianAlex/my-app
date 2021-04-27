@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
-import Modal from "react-modal";
-import { useData } from "../hooks/Providers/DataProvider";
-import { useLocalData } from "../hooks/Providers/LocalDataProvider";
-import "./ResultModal.scss";
+import React, { useEffect, useState } from 'react';
+import Modal from 'react-modal';
+import { useData } from '../common/hooks/Providers/DataProvider';
+import { useLocalData } from '../common/hooks/Providers/LocalDataProvider';
+import './ResultModal.scss';
 
 Modal.setAppElement('#root');
 
@@ -20,13 +20,6 @@ export const ResultModal = (props) => {
       setModalIsOpen(true);
     }
   }, [data, localData]);
-
-  const customStyles = {
-    content: {
-      top: '10%',
-      left: '30%',
-    },
-  };
 
   return (
     <div className="modal">
@@ -77,4 +70,11 @@ export const ResultModal = (props) => {
       </Modal>
     </div>
   );
+};
+
+const customStyles = {
+  content: {
+    top: '10%',
+    left: '30%',
+  },
 };

@@ -1,5 +1,5 @@
-import { useState, useEffect } from "react";
-import { utils } from "./utils";
+import { useState, useEffect } from 'react';
+import { utils } from './utils';
 
 export const useGameState = () => {
   const { random, range, sum, randomSumIn } = utils;
@@ -22,7 +22,7 @@ export const useGameState = () => {
       setCandidateNums(newCandidatesNums);
     } else {
       const newAvailableNums = availableNums.filter(
-        (n) => !newCandidatesNums.includes(n)
+        (n) => !newCandidatesNums.includes(n),
       );
       setStars(randomSumIn(newAvailableNums, 9));
       setAvailableNums(newAvailableNums);
@@ -30,5 +30,5 @@ export const useGameState = () => {
     }
   };
 
-  return { stars, availableNums, candidateNums, secondsLeft, setGameState }
+  return { stars, availableNums, candidateNums, secondsLeft, setGameState };
 };
