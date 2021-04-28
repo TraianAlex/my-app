@@ -2,7 +2,7 @@ import React from 'react'
 
 export const ShoppingListPage = () => {
   return (
-    <div>
+    <div className="meal-tracker">
       <h1>Shopping List</h1>
     </div>
   )

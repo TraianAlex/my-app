@@ -9,6 +9,7 @@ import { modelObs } from './models/time-names';
 import './Results.scss';
 
 export const Results = () => {
+  const [open, setOpen] = useState(false);
   const [timeLocation, setTimeLocation] = useState('');
   const [names, setNames] = useState([]);
   //const [, setData] = useData();
@@ -35,6 +36,7 @@ export const Results = () => {
             //setData({ names: ajaxResponse.response, timeLocation: value });
           });
           setTimeLocation(value);
+          setOpen(true);
         },
         (err) => console.log(`ERROR: ${err}`),
         () => console.log('All done.'),
@@ -60,9 +62,11 @@ export const Results = () => {
   return (
     <div className="results">
       <LocalDataProvider getData={getData}>
-        RxJS results:
-        <button id="okButton">OK</button>
-        <ResultModal />
+        <div className="results-content">
+          RxJS results:
+          <button id="okButton">OK</button>
+        </div>
+        <ResultModal open={open} />
       </LocalDataProvider>
     </div>
   );
