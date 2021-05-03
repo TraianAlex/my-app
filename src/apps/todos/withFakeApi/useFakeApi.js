@@ -1,25 +1,24 @@
-// @ts-nocheck
-import React, { useReducer } from 'react';
-import TodoContext from './Context';
-import TodoReducer from './TodoReducer';
+import { useContext } from 'react';
+import TodoContext from '../Context';
 import {
   SET_TODO_TITLE,
   GET_TODOS,
   CREATE_TODO,
+  ON_UPDATE_TODO,
+  UPDATE_TODO,
   DELETE_TODO,
   CLEAR_TODO_TITLE,
-} from './Types';
+} from '../Types';
 
 const getRandomId = () => `${Math.random()}-${Math.random()}`;
 
-const TodoState = ({ children }) => {
-  const initialState = {
-    todos: [],
-    title: '',
-    loading: true,
-  };
+export const useFakeApi = () => {
+  const context = useContext(TodoContext);
+  if (!context) {
+    throw new Error(`useFakeApi must be used within a TodoState`);
+  }
 
-  const [state, dispatch] = useReducer(TodoReducer, initialState);
+  const [state, dispatch] = context;
 
   const setTodoTitle = (payload) => {
     dispatch({ type: SET_TODO_TITLE, payload });
@@ -38,12 +37,7 @@ const TodoState = ({ children }) => {
     }
   };
 
-  const createTodo = async (title) => {
-    const newTodo = {
-      title,
-      completed: false,
-    };
-
+  const createTodo = async (newTodo) => {
     try {
       const todo = await fetch('https://jsonplaceholder.typicode.com/todos', {
         method: 'POST',
@@ -53,10 +47,37 @@ const TodoState = ({ children }) => {
         body: JSON.stringify(newTodo),
       });
       const toJSON = await todo.json();
-      const data = {...toJSON, id: getRandomId()};
+      const data = { ...toJSON, id: getRandomId() };
 
       dispatch({ type: CLEAR_TODO_TITLE });
       dispatch({ type: CREATE_TODO, payload: data });
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
+  const onUpdateTodo = (todo) =>
+    dispatch({
+      type: ON_UPDATE_TODO,
+      payload: todo,
+    });
+
+  const updateTodo = async (newTodo) => {
+    try {
+      const todo = await fetch(
+        `https://jsonplaceholder.typicode.com/todos/${newTodo.id}`,
+        {
+          method: 'PUT',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(newTodo),
+        },
+      );
+      const toJSON = await todo.json();
+
+      dispatch({ type: CLEAR_TODO_TITLE });
+      dispatch({ type: UPDATE_TODO, payload: toJSON });
     } catch (err) {
       console.error(err.message);
     }
@@ -74,23 +95,18 @@ const TodoState = ({ children }) => {
     }
   };
 
-  const { todos, title, loading } = state;
+  const { todo, todos, title, loading } = state;
 
-  return (
-    <TodoContext.Provider
-      value={{
-        todos,
-        title,
-        loading,
-        getTodos,
-        setTodoTitle,
-        createTodo,
-        deleteTodo,
-      }}
-    >
-      {children}
-    </TodoContext.Provider>
-  );
+  return {
+    todo,
+    todos,
+    title,
+    loading,
+    getTodos,
+    setTodoTitle,
+    createTodo,
+    onUpdateTodo,
+    updateTodo,
+    deleteTodo,
+  };
 };
-
-export default TodoState;

@@ -2,9 +2,11 @@ import {
   SET_TODO_TITLE,
   GET_TODOS,
   CREATE_TODO,
+  ON_UPDATE_TODO,
+  UPDATE_TODO,
   DELETE_TODO,
   CLEAR_TODO_TITLE,
-} from './Types';
+} from '../Types';
 
 export default (state, { type, payload }) => {
   switch (type) {
@@ -23,6 +25,20 @@ export default (state, { type, payload }) => {
       return {
         ...state,
         todos: [payload, ...state.todos],
+      };
+    case ON_UPDATE_TODO:
+      return {
+        ...state,
+        todo: payload,
+      };
+    case UPDATE_TODO:
+      return {
+        ...state,
+        todo: null,
+        todos: [
+          payload,
+          ...state.todos.filter((todo) => todo.id !== payload.id),
+        ],
       };
     case CLEAR_TODO_TITLE:
       return {

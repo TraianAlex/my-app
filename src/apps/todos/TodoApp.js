@@ -1,19 +1,41 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { Container } from 'react-bootstrap';
 import './todo-style.scss';
-import TodoForm from './TodoForm';
-import TodoList from './TodoList';
-import TodoState from './TodoState';
+import TodoLocalList from './useLocalStorage/TodoLocalList';
+import TodoLocalForm from './useLocalStorage/TodoLocalForm';
+import TodoLocalState from './useLocalStorage/TodoLocalState';
+import TodoForm from './withFakeApi/TodoForm';
+import TodoState from './withFakeApi/TodoState';
+import TodoList from './withFakeApi/TodoList';
 
 export const TodoApp = () => {
+  const [isEdit, setIsEdit] = useState(null);
+  const [toggle, setToggle] = useState(true);
+
   return (
-    <TodoState>
-      <div className="container flex flex-col mt-4 todo-context">
-        <h2 className="text-center">Todo App With Context</h2>
-        <TodoForm />
-        <div className="flex flex-col mt-4">
-          <TodoList />
-        </div>
-      </div>
-    </TodoState>
+    <Container className="d-flex flex-column mt-4 todo-context">
+      <h3>Todo App with {toggle ? 'Local Storage' : 'Context and fakeAPI'}</h3>
+      <span
+        className="clearfix float-right font-weight-light text-black-50"
+        onClick={() => setToggle(!toggle)}
+      >
+        Toggle local storage or fake api
+      </span>
+      {toggle ? (
+        <TodoLocalState>
+          <TodoLocalForm isEdit={isEdit} setIsEdit={setIsEdit} />
+          <div className="mt-4">
+            <TodoLocalList setIsEdit={setIsEdit} />
+          </div>
+        </TodoLocalState>
+      ) : (
+        <TodoState>
+          <TodoForm />
+          <div className="mt-4">
+            <TodoList />
+          </div>
+        </TodoState>
+      )}
+    </Container>
   );
 };
