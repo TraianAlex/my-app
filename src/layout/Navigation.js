@@ -26,8 +26,8 @@ export const Navigation = () => {
           <Nav.Link as={NavLink} to="/home">
             Home
           </Nav.Link>
-          <Nav.Link as={NavLink} to="/page2">
-            Page2
+          <Nav.Link as={NavLink} to="/todo">
+            Todo
           </Nav.Link>
           <NavDropdown title="RxJS" id="basic-nav-dropdown">
             <NavDropdown.Item as={NavLink} to="/results">

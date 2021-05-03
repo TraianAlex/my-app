@@ -1,6 +1,5 @@
 // useState: tic tac toe
 // https://codesandbox.io/s/sleepy-browser-gftkp?file=/src/utils.js
-// http://localhost:3000/isolated/final/04.js
 
 import React, { useState } from 'react';
 import './x-o.scss';

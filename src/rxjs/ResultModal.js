@@ -1,39 +1,46 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Modal from 'react-modal';
 import { useData } from '../common/hooks/Providers/DataProvider';
 import { useLocalData } from '../common/hooks/Providers/LocalDataProvider';
 import './ResultModal.scss';
 
-Modal.setAppElement('#root');
+// Modal.setAppElement('#root');
 
 export const ResultModal = (props) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [data] = useData();
   const [localData] = useLocalData();
 
-  const openModal = () => setModalIsOpen(true);
+  // const openModal = () => setModalIsOpen(true);
 
   const closeModal = () => setModalIsOpen(false);
 
+  // useEffect(() => {
+  //   if (Object.keys(data).length > 0 || Object.keys(localData).length > 0) {
+  //     setModalIsOpen(true);
+  //   }
+  // }, [data, localData]);
   useEffect(() => {
-    if (Object.keys(data).length > 0 || Object.keys(localData).length > 0) {
-      setModalIsOpen(true);
+    if (props.open) {
+      setModalIsOpen(props.open);
     }
-  }, [data, localData]);
+  }, [props.open]);
 
   return (
-    <div className="modal">
-      <button type="button" className="modal_button" onClick={openModal}>
+    <div>
+      {/* <button type="button" className="modal_button" onClick={openModal}>
         Open Modal
-      </button>
+      </button> */}
       <Modal
         isOpen={modalIsOpen}
         onRequestClose={closeModal}
         contentLabel="Demo Modal"
+        className="Modal"
+        overlayClassName="Overlay"
         style={customStyles}
       >
-        <button type="button" className=".modal_button" onClick={closeModal}>
-          Close
+        <button type="button" className="modal_button" onClick={closeModal}>
+          X
         </button>
         <h1>Modal Header</h1>
         <p>This is the modal content</p>
@@ -74,7 +81,9 @@ export const ResultModal = (props) => {
 
 const customStyles = {
   content: {
-    top: '10%',
-    left: '30%',
+    //top: '15%',
+    //left: '15%',
+    color: 'black', //'lightsteelblue',
   },
+  color: 'lightsteelblue',
 };

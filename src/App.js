@@ -3,7 +3,6 @@ import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 import { Navigation } from './layout/Navigation';
 import { Home } from './common/components/Home';
-import { Page2 } from './common/components/Page2';
 import { Results } from './rxjs/Results';
 import { GitHubCard } from './apps/GitHubCard/GitHubCard';
 import { NavMeal } from './apps/meal-traker/NavMeal';
@@ -11,6 +10,7 @@ import { HomePage as MealTracker } from './apps/meal-traker/home';
 import { AddIngredientPage } from './apps/meal-traker/ingredients';
 import { RecipeSearchPage } from './apps/meal-traker/recipes';
 import { ShoppingListPage } from './apps/meal-traker/shopping-list';
+import { TodoApp } from './apps/todos/TodoApp';
 import { GameXO } from './games/x-o/x-o';
 import { DataProvider } from './common/hooks/Providers/DataProvider';
 import { StarMatch } from './games/star-match/StarMatch';
@@ -33,7 +33,7 @@ const App = () => {
             <Switch>
               <Redirect from="/home" to="/" />
               <Route path="/" component={Home} exact />
-              <Route path="/page2" component={Page2} exact />
+              <Route path="/todo" component={TodoApp} exact />
               <Route path="/results" component={Results} exact />
               <Route path="/github-card" component={GitHubCard} exact />
               <Route path="/meal-tracker">

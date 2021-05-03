@@ -1,6 +1,7 @@
 .game-xo {
-  font: 14px 'Century Gothic', Futura, sans-serif;
-  margin: 20px;
+  font: 20px 'Century Gothic', Futura, sans-serif;
+  color: rgb(41, 32, 32);
+  margin: 100px;
   // min-height: 260px;
   min-height: 80vh;
 
@@ -36,7 +37,7 @@
     margin-top: -1px;
     padding: 0;
     text-align: center;
-    width: 34px;
+    width: 60px;
 
     &:focus {
       outline: none;

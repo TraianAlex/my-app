@@ -1,3 +1,16 @@
 .results {
   min-height: 80vh;
+
+  .results-content {
+    margin-top: 50px;
+    color: rgb(36, 28, 28);
+
+    button {
+      margin-left: 20px;
+      background-color: #fff;
+    }
+    button:hover {
+      background-color: rgb(180, 180, 192);
+    }
+  }
 }
