@@ -9,13 +9,12 @@ export const CardList = ({ profiles }) => (
 );
 
 const Card = ({ avatar_url, name, company }) => {
-
   return (
-    <div className="github-profile">
+    <div className="github-profile m-2">
       <img alt="user" src={avatar_url} />
-      <div className="info">
-        <div className="name">{name}</div>
-        <div className="company">{company}</div>
+      <div className="d-inline-block ml-3">
+        <div className="font-weight-bold">{name}</div>
+        <div className="font-weight-bold">{company}</div>
       </div>
     </div>
   );
