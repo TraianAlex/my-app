@@ -16,18 +16,14 @@ const TodoForm = () => {
       ? { id: todo.id, title, completed: false }
       : { title, completed: false };
 
-    if (todo) {
-      updateTodo(newTodo);
-    } else {
-      createTodo(newTodo);
-    }
+    todo ? updateTodo(newTodo) : createTodo(newTodo);
   };
 
   useEffect(() => {
     if (todo) {
       setTodoTitle(todo.title);
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [todo]);
 
   return (
@@ -42,6 +38,7 @@ const TodoForm = () => {
         onChange={({ target }) => setTodoTitle(target.value)}
         value={title}
         placeholder="Things you wanna do..."
+        required
       />
       <button type="submit" className="btn">
         Save

@@ -21,11 +21,7 @@ const TodoLocalForm = ({ isEdit, setIsEdit }) => {
       completed: false,
     };
 
-    if (isEdit) {
-      updateTodo(isEdit, newTodo);
-    } else {
-      createTodo(newTodo);
-    }
+    isEdit ? updateTodo(isEdit, newTodo) : createTodo(newTodo);
 
     setTitle('');
     setIsEdit('');
@@ -51,6 +47,7 @@ const TodoLocalForm = ({ isEdit, setIsEdit }) => {
         onChange={({ target }) => setTitle(target.value)}
         value={title}
         placeholder="Things you wanna do..."
+        required
       />
       <button type="submit" className="btn">
         Save
