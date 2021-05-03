@@ -1,22 +1,22 @@
-import React, { useState } from 'react';
-import { Form } from './Form';
+import React from 'react';
+import { Container } from 'react-bootstrap';
+import { FormGithub } from './FormGithub';
 import { CardList } from './CardList';
 import './GitHubCard.scss';
-// GitHub usernames: gaearon, sophiebits, sebmarkbage, bvaughn
+import { useGitApi } from './useGitApi';
 
 export const GitHubCard = () => {
-  const [profiles, setProfiles] = useState([]);
-
-  const addNewProfile = (profileData) =>
-    setProfiles((prevState) => [...prevState, profileData]);
+  const [profiles, userName, setUsername, handleSubmit] = useGitApi();
 
   return (
-    <div className="github-card">
-      <div className="header">The GitHub Cards App</div>
-      <Form onSubmit={addNewProfile} />
+    <Container className="github-card">
+      <div className="header text-center mt-3 mb-3">The GitHub Cards App</div>
+      <FormGithub
+        handleSubmit={handleSubmit}
+        setUsername={setUsername}
+        userName={userName}
+      />
       <CardList profiles={profiles} />
-    </div>
+    </Container>
   );
 };
-
-// https://jscomplete.com/playground/rgs2.7
