@@ -2,15 +2,11 @@
   .todo-item {
     background-color: #ccc;
     color: #333;
-    margin: 0 0px 20px 0;
-    border-radius: 5px;
-    padding: 10px 20px 0 20px;
     box-shadow: rgba(0, 0, 0, 0.5) 1px 1px 1px;
   }
 
-  .edit-todo, .remove-todo {
+  .edit-todo {
     cursor: pointer;
-    padding: 0px 10px;
     font-size: 20px;
   }
 
