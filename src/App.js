@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import './App.css';
 import { Navigation } from './layout/Navigation';
-import { Home } from './common/components/Home';
+import Cards from './apps/cards/App';
 import { Results } from './rxjs/Results';
 import { GitHubCard } from './apps/GitHubCard/GitHubCard';
 import { NavMeal } from './apps/meal-traker/NavMeal';
@@ -31,8 +31,8 @@ const App = () => {
           <Navigation />
           <header className="App-header">
             <Switch>
-              <Redirect from="/home" to="/" />
-              <Route path="/" component={Home} exact />
+              <Redirect from="/cards" to="/" />
+              <Route path="/" component={Cards} exact />
               <Route path="/todo" component={TodoApp} exact />
               <Route path="/results" component={Results} exact />
               <Route path="/github-card" component={GitHubCard} exact />
