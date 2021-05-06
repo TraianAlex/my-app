@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from 'react';
 import { fromEvent } from 'rxjs';
 import { ajax } from 'rxjs/ajax';
 import { map, pluck, timeInterval } from 'rxjs/operators';
+import { Button } from 'react-bootstrap';
 //import { useData } from "../common/hooks/Providers/DataProvider";
 import { LocalDataProvider } from '../common/hooks/Providers/LocalDataProvider';
 import { ResultModal } from './ResultModal';
@@ -63,8 +64,8 @@ export const Results = () => {
     <div className="results">
       <LocalDataProvider getData={getData}>
         <div className="results-content">
-          RxJS results:
-          <button id="okButton">OK</button>
+          RxJS:
+          <Button className="text-dark" id="okButton">Fetch data</Button>
         </div>
         <ResultModal open={open} />
       </LocalDataProvider>

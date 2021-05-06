@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Button } from 'react-bootstrap';
 import Modal from 'react-modal';
 import { useData } from '../common/hooks/Providers/DataProvider';
 import { useLocalData } from '../common/hooks/Providers/LocalDataProvider';
@@ -15,16 +16,11 @@ export const ResultModal = (props) => {
 
   const closeModal = () => setModalIsOpen(false);
 
-  // useEffect(() => {
-  //   if (Object.keys(data).length > 0 || Object.keys(localData).length > 0) {
-  //     setModalIsOpen(true);
-  //   }
-  // }, [data, localData]);
   useEffect(() => {
-    if (props.open) {
+    if (Object.keys(data).length > 0 || Object.keys(localData).length > 0) {
       setModalIsOpen(props.open);
     }
-  }, [props.open]);
+  }, [data, localData, props.open]);
 
   return (
     <div>
@@ -39,11 +35,11 @@ export const ResultModal = (props) => {
         overlayClassName="Overlay"
         style={customStyles}
       >
-        <button type="button" className="modal_button" onClick={closeModal}>
+        <Button className="modal_button" onClick={closeModal}>
           X
-        </button>
-        <h1>Modal Header</h1>
-        <p>This is the modal content</p>
+        </Button>
+        <h3 className="mt-3">RxJS results</h3>
+        <p>The click info from the Fetch Data button and an api call to the json-generator.com</p>
         <div>{data && data.timeLocation}</div>
         <div>{localData && localData.timeLocation}</div>
         <div>
@@ -84,6 +80,7 @@ const customStyles = {
     //top: '15%',
     //left: '15%',
     color: 'black', //'lightsteelblue',
+    minWidth: '200px'
   },
   color: 'lightsteelblue',
 };

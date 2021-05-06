@@ -29,8 +29,8 @@
       }
 
       .game-done {
-        &.message {
-          font-size: 250%;
+        .message {
+          font-size: 150%;
           font-weight: bold;
           margin: 15px;
         }

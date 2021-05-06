@@ -5,24 +5,12 @@
   // min-height: 260px;
   min-height: 80vh;
 
-  ol, ul {
-    padding-left: 30px;
-  }
-
   .board-row {
     &:after {
       clear: both;
       content: '';
       display: table;
     }
-  }
-
-  .status {
-    margin-bottom: 10px;
-  }
-  
-  .restart {
-    margin-top: 10px;
   }
   
   .square {
@@ -43,13 +31,5 @@
       outline: none;
       background: #ddd;
     }
-  }
-
-  display: flex;
-  flex-direction: row;
-  
-  .game-xo-info {
-    margin-left: 20px;
-    min-width: 190px;
   }
 }

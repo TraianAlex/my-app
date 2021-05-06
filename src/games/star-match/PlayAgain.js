@@ -1,4 +1,5 @@
 import React from 'react';
+import { Button } from 'react-bootstrap';
 
 export const PlayAgain = (props) => (
   <div className="game-done">
@@ -8,6 +9,8 @@ export const PlayAgain = (props) => (
     >
       {props.gameStatus === 'lost' ? 'Game Over' : 'Nice'}
     </div>
-    <button onClick={props.onClick}>Play Again</button>
+    <Button className="mt-4" onClick={props.onClick}>
+      Play Again
+    </Button>
   </div>
 );

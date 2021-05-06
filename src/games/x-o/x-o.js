@@ -1,12 +1,11 @@
 // useState: tic tac toe
 // https://codesandbox.io/s/sleepy-browser-gftkp?file=/src/utils.js
-
 import React, { useState } from 'react';
+import { Button } from 'react-bootstrap';
 import './x-o.scss';
 
 const Board = () => {
   const [squares, setSquares] = useState(Array(9).fill(null));
-  console.log(squares);
 
   const nextValue = calculateNextValue(squares);
   const winner = calculateWinner(squares);
@@ -33,7 +32,7 @@ const Board = () => {
 
   return (
     <div>
-      <div className="status">{status}</div>
+      <div className="mb-2">{status}</div>
       <div className="board-row">
         {renderSquare(0)}
         {renderSquare(1)}
@@ -49,9 +48,9 @@ const Board = () => {
         {renderSquare(7)}
         {renderSquare(8)}
       </div>
-      <button className="restart" onClick={restart}>
-        restart
-      </button>
+      <Button className="mt-2" onClick={restart}>
+        Restart
+      </Button>
     </div>
   );
 };
@@ -92,10 +91,8 @@ const calculateWinner = (squares) => {
 
 export const GameXO = () => {
   return (
-    <div className="game-xo">
-      <div className="game-xo-board">
-        <Board />
-      </div>
+    <div className="d-flex flex-row game-xo">
+      <Board />
     </div>
   );
 };
