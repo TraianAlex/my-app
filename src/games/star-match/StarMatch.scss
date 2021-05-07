@@ -2,12 +2,7 @@
   min-height: 80vh;
   max-width: 500px;
   margin: 0 auto;
-
-  .help {
-    color: #666;
-    margin: 10px;
-    text-align: center;
-  }
+  font-size: calc(10px + 2vmin);
 
   .body {
     display: flex;
@@ -30,7 +25,7 @@
 
       .game-done {
         .message {
-          font-size: 150%;
+          font-size: 2rem;
           font-weight: bold;
           margin: 15px;
         }

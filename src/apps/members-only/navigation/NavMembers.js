@@ -8,7 +8,7 @@ export const NavMembers = () => { // { user }
     // }
  // onClick={onClickSignOut} {user.email}
     return (
-        <nav>
+        <nav className="pt-4">
             <Link to="/members-only">
                 <h1 className="app-heading">Members-Only App</h1>
             </Link>

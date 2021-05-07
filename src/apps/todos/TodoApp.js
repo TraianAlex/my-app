@@ -13,7 +13,7 @@ export const TodoApp = () => {
   const [toggle, setToggle] = useState(true);
 
   return (
-    <Container className="d-flex flex-column mt-4 todo-context">
+    <Container className="d-flex flex-column pt-5 todo-context">
       <h3>Todo App with {toggle ? 'Local Storage' : 'Context and fakeAPI'}</h3>
       <span
         className="clearfix float-right font-weight-light text-black-50"

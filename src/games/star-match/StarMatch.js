@@ -67,7 +67,7 @@ const Game = (props) => {
 
   return (
     <div className="game">
-      <div className="help">
+      <div className="pt-5">
         Pick 1 or more numbers that sum to the number of stars
       </div>
       <div className="body">

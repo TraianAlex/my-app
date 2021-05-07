@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 export const NavMeal = () => {
   return (
-    <Navbar expand="lg" style={{ margin: '0 0 0 0' }}>
+    <Navbar expand="lg" style={{ margin: '0 0 0 0' }} className="d-flex flex-row justify-content-center">
       <Nav.Link as={NavLink} to="/meal-tracker">
         Home
       </Nav.Link>

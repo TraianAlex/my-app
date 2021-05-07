@@ -28,61 +28,57 @@ const App = () => {
     <div className="App">
       <DataProvider>
         <BrowserRouter>
-          <Navigation />
-          <header className="App-header">
-            <Switch>
-              <Redirect from="/cards" to="/" />
-              <Route path="/" component={Cards} exact />
-              <Route path="/todo" component={TodoApp} exact />
-              <Route path="/results" component={Results} exact />
-              <Route path="/github-card" component={GitHubCard} exact />
-              <Route path="/meal-tracker">
-                <BrowserRouter>
-                  <NavMeal />
-                  <Route path="/meal-tracker" component={MealTracker} exact />
-                  <Route
-                    path="/meal-tracker/add-ingredient"
-                    component={AddIngredientPage}
-                    exact
-                  />
-                  <Route
-                    path="/meal-tracker/recipes"
-                    component={RecipeSearchPage}
-                    exact
-                  />
-                  <Route
-                    path="/meal-tracker/shopping-list"
-                    component={ShoppingListPage}
-                    exact
-                  />
-                </BrowserRouter>
-              </Route>
-              <Route path="/members-only">
-                <BrowserRouter>
-                  <NavMembers />
-                  <Route
-                    path="/members-only"
-                    component={GroupsListPage}
-                    exact
-                  />
-                  <Route
-                    path="/members-only/groups/:id"
-                    component={GroupPage}
-                  />
-                  <Route path="/members-only/sign-in" component={SignInPage} />
-                  <Route
-                    path="/members-only/create-group"
-                    component={CreateGroupPage}
-                  />
-                </BrowserRouter>
-              </Route>
-              <Route path="/x-o" component={GameXO} exact />
-              <Route path="/star-match" component={StarMatch} exact />
-              <Route component={NotFoundPage} />
-            </Switch>
+          <header className="mb-5">
+            <Navigation />
           </header>
-          <footer className="d-flex align-items-center justify-content-center bg-dark text-white" style={{minHeight: '12.5vh'}}>
-          © Copyright 2021 Traian Alexandru - All Rights Reserved
+          <Switch>
+            <Redirect from="/cards" to="/" />
+            <Route path="/" component={Cards} exact />
+            <Route path="/todo" component={TodoApp} exact />
+            <Route path="/results" component={Results} exact />
+            <Route path="/github-card" component={GitHubCard} exact />
+            <Route path="/meal-tracker">
+              <BrowserRouter>
+                <NavMeal />
+                <Route path="/meal-tracker" component={MealTracker} exact />
+                <Route
+                  path="/meal-tracker/add-ingredient"
+                  component={AddIngredientPage}
+                  exact
+                />
+                <Route
+                  path="/meal-tracker/recipes"
+                  component={RecipeSearchPage}
+                  exact
+                />
+                <Route
+                  path="/meal-tracker/shopping-list"
+                  component={ShoppingListPage}
+                  exact
+                />
+              </BrowserRouter>
+            </Route>
+            <Route path="/members-only">
+              <BrowserRouter>
+                <NavMembers />
+                <Route path="/members-only" component={GroupsListPage} exact />
+                <Route path="/members-only/groups/:id" component={GroupPage} />
+                <Route path="/members-only/sign-in" component={SignInPage} />
+                <Route
+                  path="/members-only/create-group"
+                  component={CreateGroupPage}
+                />
+              </BrowserRouter>
+            </Route>
+            <Route path="/x-o" component={GameXO} exact />
+            <Route path="/star-match" component={StarMatch} exact />
+            <Route component={NotFoundPage} />
+          </Switch>
+          <footer
+            className="d-flex align-items-center justify-content-center bg-dark text-white"
+            style={{ minHeight: '13.5vh' }}
+          >
+            © Copyright 2021 Traian Alexandru - All Rights Reserved
           </footer>
         </BrowserRouter>
       </DataProvider>

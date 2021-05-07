@@ -9,7 +9,7 @@ export const GitHubCard = () => {
   const [profiles, userName, setUsername, handleSubmit] = useGitApi();
 
   return (
-    <Container className="github-card">
+    <Container className="d-flex flex-column pt-4 github-card">
       <div className="header text-center mt-3 mb-3">The GitHub Cards App</div>
       <FormGithub
         handleSubmit={handleSubmit}

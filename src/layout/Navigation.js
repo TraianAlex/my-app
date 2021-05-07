@@ -3,9 +3,6 @@ import {
   Navbar,
   Nav,
   NavDropdown,
-  Form,
-  FormControl,
-  Button,
 } from 'react-bootstrap';
 import { LinkContainer } from 'react-router-bootstrap';
 import { NavLink } from 'react-router-dom';
@@ -14,14 +11,14 @@ import logo from '../logo.svg';
 
 export const Navigation = () => {
   return (
-    <Navbar bg="light" expand="lg" fixed={'top'}>
+    <Navbar bg="light" expand="lg" fixed={'top'} collapseOnSelect>
       <LinkContainer to="/">
         <Navbar.Brand>
           <img src={logo} className="App-logo" alt="logo" />
         </Navbar.Brand>
       </LinkContainer>
-      <Navbar.Toggle aria-controls="basic-navbar-nav" />
-      <Navbar.Collapse id="basic-navbar-nav">
+      <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+      <Navbar.Collapse id="responsive-navbar-nav">
         <Nav className="mr-auto">
           <Nav.Link as={NavLink} to="/cards">
             Home
@@ -54,10 +51,6 @@ export const Navigation = () => {
             </NavDropdown.Item>
           </NavDropdown>
         </Nav>
-        <Form inline>
-          <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-          <Button variant="outline-success">Search</Button>
-        </Form>
       </Navbar.Collapse>
     </Navbar>
   );

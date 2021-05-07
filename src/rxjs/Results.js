@@ -61,7 +61,7 @@ export const Results = () => {
   ]);
 
   return (
-    <div className="results">
+    <div className="d-flex flex-column results">
       <LocalDataProvider getData={getData}>
         <div className="results-content">
           RxJS:

@@ -28,14 +28,14 @@ const TodoLocalList = ({ setIsEdit }) => {
         todos.reverse().map((todo) => (
           <div
             key={todo.id}
-            className="d-flex flex-row justify-content-between align-items-center mb-3 pt-2 pr-3 pb-0 pl-3 rounded todo-item"
+            className="d-flex flex-row justify-content-between align-items-center mb-3 pt-2 pr-3 pb-2 pl-3 rounded todo-item"
           >
-            <p
+            <span
               style={lineThrough(todo.completed)}
               onClick={() => onSetCompleted(todo.id)}
             >
               {todo.title}
-            </p>
+            </span>
             <span className="d-inline-flex">
               <i
                 className="edit-todo pr-2 pl-2 fa fa-edit"
