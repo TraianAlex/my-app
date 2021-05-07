@@ -22,7 +22,6 @@ export const Summary = memo(
             currentCard.label,
             compareCard.label,
           );
-          console.log(distance);
 
           distanceCals.max = Math.max(distanceCals.max, distance.distance);
           distanceCals.min = Math.min(distanceCals.min, distance.distance);

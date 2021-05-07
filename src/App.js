@@ -81,6 +81,9 @@ const App = () => {
               <Route component={NotFoundPage} />
             </Switch>
           </header>
+          <footer className="d-flex align-items-center justify-content-center bg-dark text-white" style={{minHeight: '12.5vh'}}>
+          © Copyright 2021 Traian Alexandru - All Rights Reserved
+          </footer>
         </BrowserRouter>
       </DataProvider>
     </div>

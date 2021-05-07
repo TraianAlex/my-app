@@ -91,7 +91,7 @@ const calculateWinner = (squares) => {
 
 export const GameXO = () => {
   return (
-    <div className="d-flex flex-row game-xo">
+    <div className="d-flex flex-row pt-5 game-xo">
       <Board />
     </div>
   );
