@@ -28,9 +28,7 @@ const App = () => {
     <div className="App">
       <DataProvider>
         <BrowserRouter>
-          <header className="mb-5">
-            <Navigation />
-          </header>
+          <Navigation />
           <Switch>
             <Redirect from="/cards" to="/" />
             <Route path="/" component={Cards} exact />
