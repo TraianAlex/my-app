@@ -74,7 +74,7 @@ const App = () => {
           </Switch>
           <footer
             className="d-flex align-items-center justify-content-center bg-dark text-white"
-            style={{ minHeight: '13.5vh' }}
+            style={{ minHeight: '14.6vh' }}
           >
             © Copyright 2021 Traian Alexandru - All Rights Reserved
           </footer>

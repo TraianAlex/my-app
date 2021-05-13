@@ -40,7 +40,6 @@ const TodoForm = () => {
         <Form.Control
           type="text"
           name="title"
-          className="input"
           onChange={({ target }) => setTodoTitle(target.value)}
           value={title}
           placeholder="Things you wanna do..."
