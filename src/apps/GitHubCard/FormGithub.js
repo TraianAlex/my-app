@@ -41,7 +41,10 @@ export const FormGithub = ({ userName, setUsername, handleSubmit }) => {
         </small>
       </Row>
       <Form className="d-flex justify-content-md-center p-4 border border-info">
-        <Form.Group controlId="text" style={{ marginBottom: 0 }}>
+        <Form.Group
+          controlId="text"
+          style={{ marginBottom: 0, paddingRight: '10px' }}
+        >
           <Form.Control
             type="text"
             value={userName}
