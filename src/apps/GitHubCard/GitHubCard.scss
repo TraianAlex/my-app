@@ -2,17 +2,18 @@
   min-height: 80vh;
   font-size: calc(10px + 2vmin);
   .header {
-    font-size: 1.5rem;
+    font-size: 2rem;
   }
 
   .github-profile {
     font-size: 1.25rem;
     img {
-      width: 5rem;
+      width: 5em;
     }
   }
 
   .invisible-button {
+    vertical-align: top;
     border: none;
     padding: inherit;
     font-size: inherit;
@@ -21,5 +22,8 @@
     font-weight: inherit;
     background-color: transparent;
     color: #000;
+    &:hover {
+      background-color: transparent;
+    }
   }
 }

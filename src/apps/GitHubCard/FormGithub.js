@@ -7,47 +7,49 @@ export const FormGithub = ({ userName, setUsername, handleSubmit }) => {
       <Row className="justify-content-center mb-2">
         <small>
           Try{' '}
-          <button
+          <Button
+            variant="light"
             className="invisible-button"
-            type="button"
             onClick={() => setUsername('gaearon')}
           >
             "gaearon"
-          </button>
+          </Button>
           {', '}
-          <button
+          <Button
+            variant="light"
             className="invisible-button"
-            type="button"
             onClick={() => setUsername('sophiebits')}
           >
             "sophiebits"
-          </button>
+          </Button>
           {', '}
-          <button
+          <Button
+            variant="light"
             className="invisible-button"
-            type="button"
             onClick={() => setUsername('bvaughn')}
           >
             "bvaughn"
-          </button>
+          </Button>
           {', or '}
-          <button
+          <Button
+            variant="light"
             className="invisible-button"
-            type="button"
             onClick={() => setUsername('sebmarkbage')}
           >
             "sebmarkbage"
-          </button>
+          </Button>
         </small>
       </Row>
-      <Form className="d-flex justify-content-center p-4 border border-info">
-        <input
-          type="text"
-          value={userName}
-          onChange={({ target }) => setUsername(target.value)}
-          placeholder="GitHub username"
-          required
-        />
+      <Form className="d-flex justify-content-md-center p-4 border border-info">
+        <Form.Group controlId="text" style={{ marginBottom: 0 }}>
+          <Form.Control
+            type="text"
+            value={userName}
+            onChange={({ target }) => setUsername(target.value)}
+            placeholder="GitHub username"
+            required
+          />
+        </Form.Group>
         <Button onClick={handleSubmit}>Add card</Button>
       </Form>
     </>

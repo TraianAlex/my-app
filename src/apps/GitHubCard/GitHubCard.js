@@ -10,7 +10,7 @@ export const GitHubCard = () => {
 
   return (
     <Container className="d-flex flex-column pt-4 github-card">
-      <div className="header text-center mt-3 mb-3">The GitHub Cards App</div>
+      <div className="header text-center my-3">The GitHub Cards App</div>
       <FormGithub
         handleSubmit={handleSubmit}
         setUsername={setUsername}

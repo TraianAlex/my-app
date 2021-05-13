@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { Button, Col, Form } from 'react-bootstrap';
 import { useLocalStorage } from './useLocalStorage';
 
 const getRandomId = () => Math.random();
@@ -36,23 +37,28 @@ const TodoLocalForm = ({ isEdit, setIsEdit }) => {
   }, [isEdit]);
 
   return (
-    <form
+    <Form
       className="d-flex justify-content-center align-items-center mt-4"
       onSubmit={onCreateTodo}
     >
-      <input
-        type="text"
-        name="title"
-        className="input"
-        onChange={({ target }) => setTitle(target.value)}
-        value={title}
-        placeholder="Things you wanna do..."
-        required
-      />
-      <button type="submit" className="btn">
+      <Form.Group
+        as={Col}
+        controlId="text"
+        style={{ marginBottom: 0, paddingLeft: 0 }}
+      >
+        <Form.Control
+          type="text"
+          name="title"
+          onChange={({ target }) => setTitle(target.value)}
+          value={title}
+          placeholder="Things you wanna do..."
+          required
+        />
+      </Form.Group>
+      <Button type="submit" variant="light">
         Save
-      </button>
-    </form>
+      </Button>
+    </Form>
   );
 };
 

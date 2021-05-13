@@ -1,4 +1,5 @@
 import React, { useEffect } from 'react';
+import { Button, Col, Form } from 'react-bootstrap';
 import { useFakeApi } from './useFakeApi';
 
 const TodoForm = () => {
@@ -31,18 +32,24 @@ const TodoForm = () => {
       className="d-flex justify-content-center align-items-center mt-4"
       onSubmit={onCreateTodo}
     >
-      <input
-        type="text"
-        name="title"
-        className="input"
-        onChange={({ target }) => setTodoTitle(target.value)}
-        value={title}
-        placeholder="Things you wanna do..."
-        required
-      />
-      <button type="submit" className="btn">
+      <Form.Group
+        as={Col}
+        controlId="text"
+        style={{ marginBottom: 0, paddingLeft: 0 }}
+      >
+        <Form.Control
+          type="text"
+          name="title"
+          className="input"
+          onChange={({ target }) => setTodoTitle(target.value)}
+          value={title}
+          placeholder="Things you wanna do..."
+          required
+        />
+      </Form.Group>
+      <Button type="submit" variant="light">
         Save
-      </button>
+      </Button>
     </form>
   );
 };
