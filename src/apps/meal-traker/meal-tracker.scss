@@ -1,6 +1,6 @@
 .meal-tracker {
   min-height: 72.7vh;
-  color: #ccc;
+  color: rgb(53, 46, 46);
   font-size: calc(10px + 2vmin);
   h1 {
     border-bottom: 2px solid #ddd;
@@ -41,22 +41,9 @@
     text-decoration: none;
   }
   
-  .page {
-    width: 100vw;
-    height: 100vh;
-  }
-  
   .centered-container {
     max-width: 750px;
     margin: auto;
-  }
-  
-  .back-button {
-    margin: 16px;
-  }
-  
-  .page-container {
-      display: flex;
   }
   
   .column {
@@ -64,15 +51,12 @@
   }
   
   .list-container {
-    padding: 16px;
     margin: auto;
     max-width: 600px;
   }
   
   .list-item {
     border-bottom: 1px solid #ddd;
-    display: flex;
-    padding: 16px;
   }
   
   .list-item > h3 {
@@ -86,34 +70,22 @@
     padding-left: 16px;
   }
   
-  .list-item > .right-action {
-    flex: 1;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  
   .small-x {
-    background-color: #ccc;
-    border-radius: 50%;
     cursor: pointer;
     height: 24px;
     padding-top: 1px;
     position: relative;
-    text-align: center;
-    width: 24px;
+    width: 30px;
   }
   
   .the-x {
-    font-weight: bold;
-    left: 7px;
+    left: -10px;
     position: absolute;
-    top: 2px;
+    top: -12px;
   }
   
   .search-list-item {
     cursor: pointer;
-    padding: 16px;
     border-bottom: 1px solid #ddd;
   }
   
@@ -121,20 +93,10 @@
     background-color: #eee;
   }
   
-  .full-width {
-    display: block;
-    width: 100%;
-  }
-  
-  .space-before {
-    margin-top: 16px;
-  }
-  
-  .space-after {
-    margin-bottom: 16px;
-  }
-  
   .shopping-list-button {
     background-color: #ADE25D;
+    &:hover {
+      background-color: #6e7462;
+    }
   }
 }

@@ -5,7 +5,6 @@ import { Navigation } from './layout/Navigation';
 import Cards from './apps/cards/App';
 import { Results } from './rxjs/Results';
 import { GitHubCard } from './apps/GitHubCard/GitHubCard';
-import { NavMeal } from './apps/meal-traker/NavMeal';
 import { HomePage as MealTracker } from './apps/meal-traker/home';
 import { AddIngredientPage } from './apps/meal-traker/ingredients';
 import { RecipeSearchPage } from './apps/meal-traker/recipes';
@@ -37,7 +36,6 @@ const App = () => {
             <Route path="/github-card" component={GitHubCard} exact />
             <Route path="/meal-tracker">
               <BrowserRouter>
-                <NavMeal />
                 <Route path="/meal-tracker" component={MealTracker} exact />
                 <Route
                   path="/meal-tracker/add-ingredient"

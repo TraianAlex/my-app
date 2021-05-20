@@ -5,7 +5,7 @@ export const BackButton = () => {
   const history = useHistory();
 
   return (
-    <button className="back-button" onClick={history.goBack}>
+    <button className="mt-4 mb-2" onClick={history.goBack}>
       Back
     </button>
   );
