@@ -12,7 +12,7 @@ export const AddIngredientPage = () => {
 
   const addToIngredients = async () => {
     const newIngredient = { name: name.toLowerCase(), amount, units };
-    await fetch('/ingredients', {
+    await fetch('http://127.0.0.1:8080/ingredients', {
       method: 'post',
       body: JSON.stringify(newIngredient),
       headers: {
