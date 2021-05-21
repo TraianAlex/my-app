@@ -12,7 +12,7 @@ export const AddIngredientPage = () => {
 
   const addToIngredients = async () => {
     const newIngredient = { name: name.toLowerCase(), amount, units };
-    await fetch('http://127.0.0.1:8080/ingredients', {
+    await fetch(`${process.env.REACT_APP_API_MEAL_TRACKER}/ingredients`, {
       method: 'post',
       body: JSON.stringify(newIngredient),
       headers: {

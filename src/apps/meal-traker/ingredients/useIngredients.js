@@ -6,7 +6,9 @@ export const useIngredients = () => {
 
   const loadIngredients = async () => {
     setIsLoading(true);
-    const response = await fetch('http://127.0.0.1:8080/ingredients');
+    const response = await fetch(
+      `${process.env.REACT_APP_API_MEAL_TRACKER}/ingredients`,
+    );
     const ingredients = await response.json();
     setIngredients(ingredients);
     setIsLoading(false);

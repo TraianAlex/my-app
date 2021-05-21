@@ -7,7 +7,9 @@ export const useRecipeSearchResults = (searchString) => {
   useEffect(() => {
     setIsLoading(true);
     const loadSearchResults = async () => {
-      const response = await fetch(`http://127.0.0.1:8080/recipes?search=${searchString}`);
+      const response = await fetch(
+        `${process.env.REACT_APP_API_MEAL_TRACKER}/recipes?search=${searchString}`,
+      );
       const results = await response.json();
       setSearchResults(results);
       setIsLoading(false);

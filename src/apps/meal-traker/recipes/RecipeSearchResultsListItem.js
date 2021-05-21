@@ -15,7 +15,7 @@ export const RecipeSearchResultsListItem = ({ recipe, ingredients = [] }) => {
   );
 
   const addMealWithRecipe = async () => {
-    await fetch('http://127.0.0.1:8080/meals', {
+    await fetch(`${process.env.REACT_APP_API_MEAL_TRACKER}/meals`, {
       method: 'post',
       body: JSON.stringify({ date: selectedDate, recipeId: recipe._id }),
       headers: { 'Content-Type': 'application/json' },

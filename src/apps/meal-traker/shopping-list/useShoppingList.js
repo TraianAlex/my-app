@@ -6,7 +6,9 @@ export const useShoppingList = () => {
 
   useEffect(() => {
     const loadShoppingList = async () => {
-      const response = await fetch('http://127.0.0.1:8080/shopping-list');
+      const response = await fetch(
+        `${process.env.REACT_APP_API_MEAL_TRACKER}/shopping-list`,
+      );
       const items = await response.json();
       console.log(items);
       setIsLoading(false);
