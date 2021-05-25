@@ -11,7 +11,7 @@ export const AddIngredientPage = () => {
   const history = useHistory();
 
   const addToIngredients = async () => {
-    const newIngredient = { name: name.toLowerCase(), amount, units };
+    const newIngredient = { name, amount, units };
     await fetch(`${process.env.REACT_APP_API_MEAL_TRACKER}/ingredients`, {
       method: 'post',
       body: JSON.stringify(newIngredient),
@@ -19,7 +19,7 @@ export const AddIngredientPage = () => {
         'Content-Type': 'application/json',
       },
     });
-    alert('Successfully added ingredient!');
+    console.log('Successfully added ingredient!');
     history.push('/meal-tracker');
   };
 
