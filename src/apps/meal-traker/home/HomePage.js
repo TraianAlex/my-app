@@ -32,15 +32,15 @@ export const HomePage = () => {
 
   return (
     <div className="d-flex flex-column meal-tracker">
-      <div className="d-flex">
-        <div className="column">
+      <div className="d-flex flex-wrap justify-content-around">
+        <div className="column" style={{flexBasis: '400px'}}>
           <MealsList
             isLoading={isLoadingMeals}
             meals={meals}
             onDelete={onDeleteMeal}
           />
         </div>
-        <div className="column">
+        <div className="column" style={{flexBasis: '340px'}}>
           <IngredientsList
             isLoading={isLoadingIngredients}
             ingredients={ingredients}
