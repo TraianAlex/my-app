@@ -1,5 +1,5 @@
 .members-only {
-  min-height: 60.4vh;
+  min-height: 15vh;
   font-size: calc(10px + 2vmin);
   nav {
     border-bottom: 2px solid #eee;
@@ -40,24 +40,24 @@
     padding: 16px;
   }
   
-  .app-heading {
-    display: inline-block;
-    margin: 8px;
-  }
+  // .app-heading {
+  //   display: inline-block;
+  //   margin: 8px;
+  // }
   
-  .logged-in-as {
-    float: right;
-    margin-right: 16px;
-  }
+  // .logged-in-as {
+  //   float: right;
+  //   margin-right: 16px;
+  // }
   
-  .sign-out-button {
-    float: right;
-  }
+  // .sign-out-button {
+  //   float: right;
+  // }
   
-  .centered-container {
-    max-width: 750px;
-    margin: auto;
-  }
+  // .centered-container {
+  //   max-width: 750px;
+  //   margin: auto;
+  // }
   
   .section-heading {
     border-bottom: 1px solid black;
@@ -94,16 +94,16 @@
     border-radius: 4px;
   }
   
-  .full-width {
-    display: block;
-    width: 100%;
-  }
+  // .full-width {
+  //   display: block;
+  //   width: 100%;
+  // }
   
-  .space-before {
-    margin-top: 16px;
-  }
+  // .space-before {
+  //   margin-top: 16px;
+  // }
   
-  .space-after {
-    margin-bottom: 16px;
-  }
+  // .space-after {
+  //   margin-bottom: 16px;
+  // }
 }

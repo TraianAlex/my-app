@@ -9,6 +9,7 @@ import { HomePage as MealTracker } from './apps/meal-traker/home';
 import { AddIngredientPage } from './apps/meal-traker/ingredients';
 import { RecipeSearchPage } from './apps/meal-traker/recipes';
 import { ShoppingListPage } from './apps/meal-traker/shopping-list';
+import { PrivateRoute, useUser } from './apps/members-only/auth/';
 import { TodoApp } from './apps/todos/TodoApp';
 import { GameXO } from './games/x-o/x-o';
 import { DataProvider } from './common/hooks/Providers/DataProvider';
@@ -23,6 +24,8 @@ import { SignInPage } from './apps/members-only/auth';
 import { NavMembers } from './apps/members-only/navigation';
 
 const App = () => {
+  const { isLoading, user } = useUser();
+
   return (
     <div className="App">
       <DataProvider>
@@ -56,11 +59,24 @@ const App = () => {
             </Route>
             <Route path="/members-only">
               <BrowserRouter>
-                <NavMembers />
-                <Route path="/members-only" component={GroupsListPage} exact />
-                <Route path="/members-only/groups/:id" component={GroupPage} />
+                <NavMembers user={user} />
                 <Route path="/members-only/sign-in" component={SignInPage} />
-                <Route
+                <PrivateRoute
+                  isLoading={isLoading}
+                  isAuthed={!!user}
+                  path="/members-only"
+                  component={GroupsListPage}
+                  exact
+                />
+                <PrivateRoute
+                  isLoading={isLoading}
+                  isAuthed={!!user}
+                  path="/members-only/groups/:id"
+                  component={GroupPage}
+                />
+                <PrivateRoute
+                  isLoading={isLoading}
+                  isAuthed={!!user}
                   path="/members-only/create-group"
                   component={CreateGroupPage}
                 />

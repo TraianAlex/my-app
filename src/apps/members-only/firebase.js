@@ -1,4 +1,4 @@
-import * as firebase from 'firebase/app';
+import firebase from 'firebase/app';
 import 'firebase/analytics';
 import 'firebase/auth';
 
@@ -12,5 +12,5 @@ const firebaseConfig = {
   measurementId: "G-6DZQCQ5LGC"
 };
 
-firebase.initializeApp(firebaseConfig);
+export default firebase.initializeApp(firebaseConfig);
 firebase.analytics();
