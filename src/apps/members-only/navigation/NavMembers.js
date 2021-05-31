@@ -16,7 +16,7 @@ export const NavMembers = ({ user }) => {
         user ? 'justify-content-between' : 'justify-content-center'
       } pt-4 pb-1 border border-top-0 border-right-0 border-left-0`}
     >
-      <Link to="/members-only">
+      <Link to={user ? '/members-only' : '/members-only/sign-in'}>
         <h3 className={`ml-2`}>My Groups</h3>
       </Link>
       {user ? (

@@ -37,30 +37,30 @@ const App = () => {
             <Route path="/todo" component={TodoApp} exact />
             <Route path="/results" component={Results} exact />
             <Route path="/github-card" component={GitHubCard} exact />
-            <Route path="/meal-tracker">
-              <BrowserRouter>
-                <Route path="/meal-tracker" component={MealTracker} exact />
-                <Route
-                  path="/meal-tracker/add-ingredient"
-                  component={AddIngredientPage}
-                  exact
-                />
-                <Route
-                  path="/meal-tracker/recipes"
-                  component={RecipeSearchPage}
-                  exact
-                />
-                <Route
-                  path="/meal-tracker/shopping-list"
-                  component={ShoppingListPage}
-                  exact
-                />
-              </BrowserRouter>
-            </Route>
+            <Route path="/meal-tracker" component={MealTracker} exact />
+            <Route
+              path="/meal-tracker/add-ingredient"
+              component={AddIngredientPage}
+              exact
+            />
+            <Route
+              path="/meal-tracker/recipes"
+              component={RecipeSearchPage}
+              exact
+            />
+            <Route
+              path="/meal-tracker/shopping-list"
+              component={ShoppingListPage}
+              exact
+            />
             <Route path="/members-only">
               <BrowserRouter>
                 <NavMembers user={user} />
-                <Route path="/members-only/sign-in" component={SignInPage} />
+                <Route
+                  path="/members-only/sign-in"
+                  component={SignInPage}
+                  exact
+                />
                 <PrivateRoute
                   isLoading={isLoading}
                   isAuthed={!!user}
@@ -73,12 +73,14 @@ const App = () => {
                   isAuthed={!!user}
                   path="/members-only/groups/:id"
                   component={GroupPage}
+                  exact
                 />
                 <PrivateRoute
                   isLoading={isLoading}
                   isAuthed={!!user}
                   path="/members-only/create-group"
                   component={CreateGroupPage}
+                  exact
                 />
               </BrowserRouter>
             </Route>
@@ -86,13 +88,13 @@ const App = () => {
             <Route path="/star-match" component={StarMatch} exact />
             <Route component={NotFoundPage} />
           </Switch>
-          <footer
-            className="d-flex align-items-center justify-content-center bg-dark text-white"
-            style={{ minHeight: '14.6vh' }}
-          >
-            © Copyright 2021 Traian Alexandru - All Rights Reserved
-          </footer>
         </BrowserRouter>
+        <footer
+          className="d-flex align-items-center justify-content-center bg-dark text-white"
+          style={{ minHeight: '14.6vh' }}
+        >
+          © Copyright 2021 Traian Alexandru - All Rights Reserved
+        </footer>
       </DataProvider>
     </div>
   );
