@@ -14,7 +14,7 @@ export const GroupPage = () => {
     `${process.env.REACT_APP_API_MEMBERS_ONLY}/groups/${id}`,
     { owner: {}, messages: [], requests: [] },
   );
-  //console.log(group);
+
   //const {messages, setMessages} = useProtectedResource(`${process.env.REACT_APP_API_MEMBERS_ONLY}/groups/${id}/messages`, []);
   //const {requests, setRequests} = useProtectedResource(`${process.env.REACT_APP_API_MEMBERS_ONLY}/groups/${id}/requests`, []);
 
@@ -26,7 +26,7 @@ export const GroupPage = () => {
     const updatedMessages = await response.json();
     //setMessages(updatedMessages);
     setGroup({ ...group, messages: updatedMessages });
-    setMessageValue('');
+    //setMessageValue('');
   };
 
   const acceptRequest = async (requestId) => {
@@ -48,8 +48,11 @@ export const GroupPage = () => {
   };
 
   return (
-    <div className="members-only justify-content-center m-auto w-50">
-      <h2>{group?.group?.name}</h2>
+    <div
+      className="members-only justify-content-center m-auto w-50 pt-3 pb-3 text-left"
+      style={{ minHeight: '75vh' }}
+    >
+      <h3>{group?.group?.name}</h3>
       <p>Owned by: {group?.group?.ownerId.fullName}</p>
       <MessagesList messages={group.messages} />
       <div className="new-message-form">
@@ -59,7 +62,9 @@ export const GroupPage = () => {
           value={messageValue}
           onChange={(e) => setMessageValue(e.target.value)}
         />
-        <button onClick={postMessage}>Submit</button>
+        <button className="ml-2" onClick={postMessage}>
+          Submit
+        </button>
       </div>
       {group?.group?.ownerId.id === user.uid ? (
         <RequestsList

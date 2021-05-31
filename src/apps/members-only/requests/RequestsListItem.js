@@ -2,8 +2,8 @@ import React from 'react';
 
 export const RequestsListItem = ({ request, onAccept, onReject }) => (
   <div>
-    <h3>{request.userId.fullName}</h3>
+    <h4>{request.userId.fullName}</h4>
     <button onClick={() => onAccept(request._id)}>Accept</button>
-    <button onClick={() => onReject(request._id)}>Reject</button>
+    <button className="ml-2" onClick={() => onReject(request._id)}>Reject</button>
   </div>
 );

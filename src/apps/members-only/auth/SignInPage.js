@@ -21,11 +21,11 @@ export const SignInPage = () => {
   };
 
   return (
-    <div className="members-only">
+    <div className="members-only mt-5 pt-5" style={{ minHeight: '70vh' }}>
       <div className="justify-content-center m-auto w-50">
         {signInError ? (
           <div>
-            <p className="error-message">{signInError}</p>
+            <p className="bg-danger p-1 rounded-lg">{signInError}</p>
           </div>
         ) : null}
         <input

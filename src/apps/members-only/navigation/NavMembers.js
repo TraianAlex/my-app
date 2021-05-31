@@ -11,17 +11,21 @@ export const NavMembers = ({ user }) => {
   };
 
   return (
-    <nav className="members-only pt-4">
+    <nav
+      className={`members-only d-flex ${
+        user ? 'justify-content-between' : 'justify-content-center'
+      } pt-4 pb-1 border border-top-0 border-right-0 border-left-0`}
+    >
       <Link to="/members-only">
-        <h2 className={`d-inline-block m-1 ${user ? 'float-left' : ''}`}>Members-Only</h2>
+        <h3 className={`ml-2`}>My Groups</h3>
       </Link>
       {user ? (
-        <>
-          <button className="float-right" onClick={onClickSignOut}>
+        <div>
+          <button className="float-right mr-3" onClick={onClickSignOut}>
             Sign Out
           </button>
           <p className="float-right mr-3 mt-1">{user.email}</p>
-        </>
+        </div>
       ) : null}
     </nav>
   );

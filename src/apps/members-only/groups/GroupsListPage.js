@@ -17,20 +17,25 @@ export const GroupsListPage = () => {
   );
 
   return (
-    <div className="members-only justify-content-center m-auto w-50">
-      <GroupsList
-        groupName='My Groups'
-        isLoading={isLoading}
-        groups={userGroups}
-        ListItemComponent={MyGroupsListItem}
-      />
-      <GroupsList
-        groupName='Other Groups'
-        isLoading={isLoading}
-        groups={notUserGroups}
-        ListItemComponent={GroupsListItem}
-      />
-      <Link to="/members-only/create-group">
+    <div
+      className="d-flex flex-column members-only"
+      style={{ minHeight: '75vh' }}
+    >
+      <div className="d-flex flex-wrap justify-content-around">
+        <GroupsList
+          groupName="My Groups"
+          isLoading={isLoading}
+          groups={userGroups}
+          ListItemComponent={MyGroupsListItem}
+        />
+        <GroupsList
+          groupName="Other Groups"
+          isLoading={isLoading}
+          groups={notUserGroups}
+          ListItemComponent={GroupsListItem}
+        />
+      </div>
+      <Link to="/members-only/create-group" className="mt-3 mb-3">
         <button>Create New Group</button>
       </Link>
     </div>

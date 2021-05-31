@@ -1,10 +1,5 @@
 .members-only {
-  min-height: 15vh;
-  font-size: calc(10px + 2vmin);
-  nav {
-    border-bottom: 2px solid #eee;
-    padding: 16px;
-  }
+  font-size: calc(10px + 1.4vmin);
   
   button {
     background-color: green;
@@ -40,41 +35,6 @@
     padding: 16px;
   }
   
-  // .app-heading {
-  //   display: inline-block;
-  //   margin: 8px;
-  // }
-  
-  // .logged-in-as {
-  //   float: right;
-  //   margin-right: 16px;
-  // }
-  
-  // .sign-out-button {
-  //   float: right;
-  // }
-  
-  // .centered-container {
-  //   max-width: 750px;
-  //   margin: auto;
-  // }
-  
-  .section-heading {
-    border-bottom: 1px solid black;
-    padding-bottom: 16px;
-  }
-  
-  .list-item {
-    align-items: center;
-    border-bottom: 1px solid #ddd;
-    display: flex;
-    padding: 16px;
-  }
-  
-  .list-item-data {
-    flex: 1;
-  }
-  
   .new-message-form {
     padding: 16px 0;
     display: flex;
@@ -87,23 +47,4 @@
   .new-message-form button {
     flex: 1;
   }
-  
-  .error-message {
-    background-color: #ffccbb;
-    padding: 8px;
-    border-radius: 4px;
-  }
-  
-  // .full-width {
-  //   display: block;
-  //   width: 100%;
-  // }
-  
-  // .space-before {
-  //   margin-top: 16px;
-  // }
-  
-  // .space-after {
-  //   margin-bottom: 16px;
-  // }
 }

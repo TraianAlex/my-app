@@ -16,7 +16,7 @@ export const CreateGroupPage = () => {
   };
 
   return (
-    <div className="members-only justify-content-center m-auto w-50" style={{minHeight: "65vh"}}>
+    <div className="members-only justify-content-center m-auto w-50 pt-5" style={{minHeight: "70vh"}}>
       <h2>Create Group</h2>
       <input
         type="text"
@@ -24,7 +24,7 @@ export const CreateGroupPage = () => {
         value={nameValue}
         onChange={(e) => setNameValue(e.target.value)}
       />
-      <button onClick={createGroup}>Create Group</button>
+      <button onClick={createGroup} className="ml-2">Create Group</button>
     </div>
   );
 };
