@@ -44,6 +44,9 @@ export const Navigation = () => {
               <LinkContainer to="/members-only">
                 <NavDropdown.Item>Members Only</NavDropdown.Item>
               </LinkContainer>
+              <LinkContainer to="/photo-sharing">
+                <NavDropdown.Item>Photo Sharing</NavDropdown.Item>
+              </LinkContainer>
             </NavDropdown>
             <NavDropdown
               title="Games"

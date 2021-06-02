@@ -5,11 +5,11 @@ export const postWithCredentials = async (url, bodyData) => {
 
   if (!user) {
     console.log('Error: trying to make an authed requests while not logged in');
-    return;
+    return [];
   }
 
   const response = await fetch(
-    `${process.env.REACT_APP_API_MEMBERS_ONLY}${url}`,
+    `${process.env.REACT_APP_API_PHOTOS_SHARING}${url}`,
     {
       method: 'post',
       body: JSON.stringify(bodyData),

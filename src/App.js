@@ -22,9 +22,21 @@ import {
 } from './apps/members-only/groups';
 import { SignInPage } from './apps/members-only/auth';
 import { NavMembers } from './apps/members-only/navigation';
+import { NavPhotos } from 'apps/photo-sharing/navigation';
+import {
+  PrivateRoutePhotos,
+  SignInPhotos,
+  useUserPhotos,
+} from 'apps/photo-sharing/auth';
+import {
+  BrowsePhotosPage,
+  PhotoDetailPage,
+  UploadPhotoPage,
+} from 'apps/photo-sharing/photos';
 
 const App = () => {
-  const { isLoading, user } = useUser();
+  const { isLoading: isLoadingMembers, user: userMembers } = useUser();
+  const { isLoading: isLoadingPhotos, user: userPhotos } = useUserPhotos();
 
   return (
     <div className="App">
@@ -55,31 +67,62 @@ const App = () => {
             />
             <Route path="/members-only">
               <BrowserRouter>
-                <NavMembers user={user} />
+                <NavMembers user={userMembers} />
                 <Route
                   path="/members-only/sign-in"
                   component={SignInPage}
                   exact
                 />
                 <PrivateRoute
-                  isLoading={isLoading}
-                  isAuthed={!!user}
+                  isLoading={isLoadingMembers}
+                  isAuthed={!!userMembers}
                   path="/members-only"
                   component={GroupsListPage}
                   exact
                 />
                 <PrivateRoute
-                  isLoading={isLoading}
-                  isAuthed={!!user}
+                  isLoading={isLoadingMembers}
+                  isAuthed={!!userMembers}
                   path="/members-only/groups/:id"
                   component={GroupPage}
                   exact
                 />
                 <PrivateRoute
-                  isLoading={isLoading}
-                  isAuthed={!!user}
+                  isLoading={isLoadingMembers}
+                  isAuthed={!!userMembers}
                   path="/members-only/create-group"
                   component={CreateGroupPage}
+                  exact
+                />
+              </BrowserRouter>
+            </Route>
+            <Route path="/photo-sharing">
+              <BrowserRouter>
+                <NavPhotos user={userPhotos} />
+                <Route
+                  path="/photo-sharing/sign-in"
+                  component={SignInPhotos}
+                  exact
+                />
+                <PrivateRoutePhotos
+                  isLoading={isLoadingPhotos}
+                  isAuthed={!!userPhotos}
+                  path="/photo-sharing"
+                  component={BrowsePhotosPage}
+                  exact
+                />
+                <PrivateRoutePhotos
+                  isLoading={isLoadingPhotos}
+                  isAuthed={!!userPhotos}
+                  path="/photo-sharing/upload-photo"
+                  component={UploadPhotoPage}
+                  exact
+                />
+                <PrivateRoutePhotos
+                  isLoading={isLoadingPhotos}
+                  isAuthed={!!userPhotos}
+                  path="/photo-sharing/photos/:id"
+                  component={PhotoDetailPage}
                   exact
                 />
               </BrowserRouter>

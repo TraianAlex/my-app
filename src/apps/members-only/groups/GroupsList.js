@@ -7,7 +7,9 @@ export const GroupsList = ({
   groupName,
 }) => (
   <div className="mt-3">
-    <h3 className="border border-dark border-top-0 border-right-0 border-left-0 pb-2">{groupName}</h3>
+    <h3 className="border border-dark border-top-0 border-right-0 border-left-0 pb-2">
+      {groupName}
+    </h3>
     {isLoading ? (
       <p>Loading...</p>
     ) : (

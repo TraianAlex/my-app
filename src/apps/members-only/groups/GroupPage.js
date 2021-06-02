@@ -11,18 +11,17 @@ export const GroupPage = () => {
   const { id } = useParams();
   const { user } = useUser();
   const { data: group, setData: setGroup } = useProtectedResource(
-    `${process.env.REACT_APP_API_MEMBERS_ONLY}/groups/${id}`,
+    `/groups/${id}`,
     { owner: {}, messages: [], requests: [] },
   );
 
-  //const {messages, setMessages} = useProtectedResource(`${process.env.REACT_APP_API_MEMBERS_ONLY}/groups/${id}/messages`, []);
-  //const {requests, setRequests} = useProtectedResource(`${process.env.REACT_APP_API_MEMBERS_ONLY}/groups/${id}/requests`, []);
+  //const {messages, setMessages} = useProtectedResource(`/groups/${id}/messages`, []);
+  //const {requests, setRequests} = useProtectedResource(`/groups/${id}/requests`, []);
 
   const postMessage = async () => {
-    const response = await postWithCredentials(
-      `${process.env.REACT_APP_API_MEMBERS_ONLY}/groups/${id}/messages`,
-      { text: messageValue },
-    );
+    const response = await postWithCredentials(`/groups/${id}/messages`, {
+      text: messageValue,
+    });
     const updatedMessages = await response.json();
     //setMessages(updatedMessages);
     setGroup({ ...group, messages: updatedMessages });
@@ -31,7 +30,7 @@ export const GroupPage = () => {
 
   const acceptRequest = async (requestId) => {
     const response = await postWithCredentials(
-      `${process.env.REACT_APP_API_MEMBERS_ONLY}/groups/${id}/requests/${requestId}/accept`,
+      `/groups/${id}/requests/${requestId}/accept`,
     );
     const updatedRequests = await response.json();
     //setRequests(updatedRequests);
@@ -40,7 +39,7 @@ export const GroupPage = () => {
 
   const rejectRequest = async (requestId) => {
     const response = await postWithCredentials(
-      `${process.env.REACT_APP_API_MEMBERS_ONLY}/groups/${id}/requests/${requestId}/reject`,
+      `/groups/${id}/requests/${requestId}/reject`,
     );
     const updatedRequests = await response.json();
     //setRequests(updatedRequests);

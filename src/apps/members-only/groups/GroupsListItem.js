@@ -3,9 +3,7 @@ import { postWithCredentials } from '../data';
 
 export const GroupsListItem = ({ group }) => {
   const requestToJoin = async () => {
-    await postWithCredentials(
-      `${process.env.REACT_APP_API_MEMBERS_ONLY}/groups/${group._id}/request`,
-    );
+    await postWithCredentials(`/groups/${group._id}/request`);
     alert('Your request has been submitted');
   };
 
