@@ -4,7 +4,6 @@ import './App.css';
 import { Navigation } from './layout/Navigation';
 import Cards from './apps/cards/App';
 import { Results } from './rxjs/Results';
-import { GitHubCard } from './apps/GitHubCard/GitHubCard';
 import { HomePage as MealTracker } from './apps/meal-traker/home';
 import { AddIngredientPage } from './apps/meal-traker/ingredients';
 import { RecipeSearchPage } from './apps/meal-traker/recipes';
@@ -33,6 +32,8 @@ import {
   PhotoDetailPage,
   UploadPhotoPage,
 } from 'apps/photo-sharing/photos';
+import { GitHubCard } from './apps/GitHubCard/GitHubCard';
+import { GithubSearch } from 'apps/github-search/GithubSearch';
 
 const App = () => {
   const { isLoading: isLoadingMembers, user: userMembers } = useUser();
@@ -48,7 +49,6 @@ const App = () => {
             <Route path="/" component={Cards} exact />
             <Route path="/todo" component={TodoApp} exact />
             <Route path="/results" component={Results} exact />
-            <Route path="/github-card" component={GitHubCard} exact />
             <Route path="/meal-tracker" component={MealTracker} exact />
             <Route
               path="/meal-tracker/add-ingredient"
@@ -129,6 +129,8 @@ const App = () => {
             </Route>
             <Route path="/x-o" component={GameXO} exact />
             <Route path="/star-match" component={StarMatch} exact />
+            <Route path="/github-search" component={GithubSearch} exact />
+            <Route path="/github-card" component={GitHubCard} exact />
             <Route component={NotFoundPage} />
           </Switch>
         </BrowserRouter>

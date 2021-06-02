@@ -69,6 +69,9 @@ export const Navigation = () => {
               id="responsive-nav-dropdown"
               className="d-flex flex-column align-items-center"
             >
+              <LinkContainer to="/github-search" className="d-flex flex-column align-items-center">
+                <NavDropdown.Item>Github Search</NavDropdown.Item>
+              </LinkContainer>
               <LinkContainer to="/github-card" className="d-flex flex-column align-items-center">
                 <NavDropdown.Item>Github Card</NavDropdown.Item>
               </LinkContainer>
