@@ -7,7 +7,7 @@ import logo from '../logo.svg';
 export const Navigation = () => {
   return (
     <header className="mb-5">
-      <Navbar bg="light" expand="lg" fixed={'top'} collapseOnSelect>
+      <Navbar bg="dark" variant="dark" expand="lg" fixed={'top'} collapseOnSelect>
         <LinkContainer to="/">
           <Navbar.Brand>
             <img src={logo} className="App-logo" alt="logo" />

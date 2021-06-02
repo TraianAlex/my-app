@@ -55,7 +55,7 @@ const TodoLocalForm = ({ isEdit, setIsEdit }) => {
           required
         />
       </Form.Group>
-      <Button type="submit" variant="light">
+      <Button type="submit" variant="light" className="todo-item">
         Save
       </Button>
     </Form>

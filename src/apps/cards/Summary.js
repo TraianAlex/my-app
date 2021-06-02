@@ -31,7 +31,7 @@ export const Summary = memo(
     }, [cardsArray]);
 
     return (
-      <div className={`Summary Summary-${position}`}>
+      <div className={`mt-2 Summary Summary-${position}`}>
         <div>You have {cardsKeysLength} cards!</div>
         <div>Max difference in labels: {distances.max}</div>
         <div>Min difference in labels: {distances.min}</div>

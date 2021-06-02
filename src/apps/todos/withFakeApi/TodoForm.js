@@ -46,7 +46,7 @@ const TodoForm = () => {
           required
         />
       </Form.Group>
-      <Button type="submit" variant="light">
+      <Button type="submit" variant="light" className="todo-item">
         Save
       </Button>
     </form>
