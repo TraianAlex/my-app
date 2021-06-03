@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { uploadFile } from '../data';
 
 export const UploadPhotoPage = () => {
@@ -9,6 +10,10 @@ export const UploadPhotoPage = () => {
   const history = useHistory();
 
   const beginUpload = async () => {
+    if (!titleValue || !selectedFile) {
+      toast('Please introduce a title and select a picture to upload!');
+      return;
+    }
     const formData = new FormData();
     formData.append('title', titleValue);
     formData.append('file', selectedFile);

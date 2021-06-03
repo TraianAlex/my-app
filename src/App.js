@@ -1,5 +1,6 @@
 import React from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { toast, ToastContainer } from 'react-toastify';
 import './App.css';
 import { Navigation } from './layout/Navigation';
 import Cards from './apps/cards/App';
@@ -35,6 +36,8 @@ import {
 import { GitHubCard } from './apps/GitHubCard/GitHubCard';
 import { GithubSearch } from 'apps/github-search/GithubSearch';
 
+toast.configure();
+
 const App = () => {
   const { isLoading: isLoadingMembers, user: userMembers } = useUser();
   const { isLoading: isLoadingPhotos, user: userPhotos } = useUserPhotos();
@@ -44,6 +47,7 @@ const App = () => {
       <DataProvider>
         <BrowserRouter>
           <Navigation />
+          <ToastContainer />
           <Switch>
             <Redirect from="/cards" to="/" />
             <Route path="/" component={Cards} exact />

@@ -4,6 +4,7 @@ import firebase from '../firebase';
 export const useProtectedResource = (url, defaultValue) => {
   const [isLoading, setIsLoading] = useState(true);
   const [data, setData] = useState(defaultValue);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     const loadResource = async () => {
@@ -22,7 +23,7 @@ export const useProtectedResource = (url, defaultValue) => {
         },
       );
       const data = await response.json();
-      setData(data);
+      response.ok ? setData(data) : setError(data.message);
       setIsLoading(false);
     };
 
@@ -30,5 +31,5 @@ export const useProtectedResource = (url, defaultValue) => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [url]);
 
-  return { isLoading, data, setData };
+  return { error, isLoading, data, setData };
 };

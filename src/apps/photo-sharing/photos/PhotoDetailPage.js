@@ -1,20 +1,24 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useParams, useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 import { useProtectedResource, postWithCredentials } from '../data';
 import { useUserPhotos } from '../auth';
 import { SharedEmailsList } from './SharedEmailsList';
 
 export const PhotoDetailPage = () => {
+  const history = useHistory();
   // @ts-ignore
   const { id } = useParams();
+  const [errorShare, setErrorShare] = useState('');
   const {
+    error,
     isLoading,
     data: photo,
     setData: setPhoto,
   } = useProtectedResource(`/photos/${id}`, {});
   const { user } = useUserPhotos();
   const userIsOwner = user.uid === photo?.ownerId?.id;
-  console.log(photo);
 
   const shareWithEmail = async (email) => {
     const response = await postWithCredentials(`/photos/${id}/shared-with`, {
@@ -22,8 +26,16 @@ export const PhotoDetailPage = () => {
     });
     // @ts-ignore
     const updatedPhoto = await response.json();
-    setPhoto(updatedPhoto);
+    // @ts-ignore
+    response.ok ? setPhoto(updatedPhoto) : setErrorShare(updatedPhoto.message);
   };
+
+  useEffect(() => {
+    if (error || errorShare) {
+      toast(error || errorShare);
+      history.push('/photo-sharing');
+    }
+  }, [error, errorShare, history]);
 
   return isLoading ? (
     <p>Loading...</p>
