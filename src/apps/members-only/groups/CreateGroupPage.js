@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { postWithCredentials } from '../data';
 
 export const CreateGroupPage = () => {
@@ -7,6 +8,10 @@ export const CreateGroupPage = () => {
   const history = useHistory();
 
   const createGroup = async () => {
+    if (!nameValue) {
+      toast('Please type the group name!');
+      return;
+    }
     const response = await postWithCredentials('/groups', { name: nameValue });
     const { newGroupId } = await response.json();
     history.push(`/members-only/groups/${newGroupId}`);

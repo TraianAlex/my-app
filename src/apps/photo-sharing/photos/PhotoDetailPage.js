@@ -21,6 +21,10 @@ export const PhotoDetailPage = () => {
   const userIsOwner = user.uid === photo?.ownerId?.id;
 
   const shareWithEmail = async (email) => {
+    if (!email) {
+      toast('Please insert an email!');
+      return;
+    }
     const response = await postWithCredentials(`/photos/${id}/shared-with`, {
       email,
     });

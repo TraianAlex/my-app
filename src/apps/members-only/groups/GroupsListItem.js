@@ -1,10 +1,13 @@
 import React from 'react';
+import { toast } from 'react-toastify';
 import { postWithCredentials } from '../data';
 
 export const GroupsListItem = ({ group }) => {
+  console.log(group);
   const requestToJoin = async () => {
     await postWithCredentials(`/groups/${group._id}/request`);
-    alert('Your request has been submitted');
+    //alert('Your request has been submitted');
+    toast('Your request has been submitted');
   };
 
   return (

@@ -1,5 +1,6 @@
-import React, { useState } from 'react';
-import { useParams } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { useHistory, useParams } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { useUser } from '../auth';
 import { useProtectedResource, postWithCredentials } from '../data';
 import { MessagesList } from '../messages';
@@ -7,10 +8,11 @@ import { RequestsList } from '../requests';
 
 export const GroupPage = () => {
   const [messageValue, setMessageValue] = useState('');
+  const history = useHistory();
   // @ts-ignore
   const { id } = useParams();
   const { user } = useUser();
-  const { data: group, setData: setGroup } = useProtectedResource(
+  const { error, data: group, setData: setGroup } = useProtectedResource(
     `/groups/${id}`,
     { owner: {}, messages: [], requests: [] },
   );
@@ -19,6 +21,10 @@ export const GroupPage = () => {
   //const {requests, setRequests} = useProtectedResource(`/groups/${id}/requests`, []);
 
   const postMessage = async () => {
+    if (!messageValue) {
+      toast('Please type the message!');
+      return;
+    }
     const response = await postWithCredentials(`/groups/${id}/messages`, {
       text: messageValue,
     });
@@ -45,6 +51,13 @@ export const GroupPage = () => {
     //setRequests(updatedRequests);
     setGroup({ ...group, requests: updatedRequests });
   };
+
+  useEffect(() => {
+    if (error) {
+      toast(error);
+      history.push('/members-only');
+    }
+  }, [error, history]);
 
   return (
     <div

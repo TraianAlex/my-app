@@ -3,6 +3,7 @@ import firebase from '../firebase';
 
 export const useProtectedResource = (url, defaultValue) => {
   const [data, setData] = useState(defaultValue);
+  const [error, setError] = useState('');
 
   useEffect(() => {
     const loadResource = async () => {
@@ -21,7 +22,7 @@ export const useProtectedResource = (url, defaultValue) => {
         },
       );
       const data = await response.json();
-      setData(data);
+      response.ok ? setData(data) : setError(data.message);
     };
 
     loadResource();
@@ -29,5 +30,5 @@ export const useProtectedResource = (url, defaultValue) => {
   }, [url]);
   console.log(data);
 
-  return { data, setData };
+  return { error, data, setData };
 };
