@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import { BackButton, Dropdown } from '../ui';
 
 const unitOptions = ['pounds', 'cups', 'tablespoons', 'teaspoons', 'count'];
@@ -11,6 +12,10 @@ export const AddIngredientPage = () => {
   const history = useHistory();
 
   const addToIngredients = async () => {
+    if (!name || !amount || !units) {
+      toast('Please complete all fields!');
+      return;
+    }
     const newIngredient = { name, amount, units };
     await fetch(`${process.env.REACT_APP_API_MEAL_TRACKER}/ingredients`, {
       method: 'post',
