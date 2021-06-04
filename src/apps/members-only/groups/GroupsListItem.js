@@ -1,12 +1,20 @@
 import React from 'react';
 import { toast } from 'react-toastify';
-import { postWithCredentials } from '../data';
+import { postWithCredentials, useProtectedResource } from '../data';
 
 export const GroupsListItem = ({ group }) => {
-  console.log(group);
+  const { data: requests } = useProtectedResource(
+    `/groups/${group._id}/requests`,
+  );
+  const requestsIds = requests?.map((group) => group.groupId._id);
+  const hasRequest = requestsIds?.includes(group._id);
+
   const requestToJoin = async () => {
+    if (hasRequest) {
+      toast('Request already sent');
+      return;
+    }
     await postWithCredentials(`/groups/${group._id}/request`);
-    //alert('Your request has been submitted');
     toast('Your request has been submitted');
   };
 
@@ -18,7 +26,7 @@ export const GroupsListItem = ({ group }) => {
         <p>{group.members.length} members</p>
       </div>
       <button className="ml-3" onClick={requestToJoin}>
-        Ask to Join
+        {hasRequest ? 'Request Pending' : 'Ask to Join'}
       </button>
     </div>
   );

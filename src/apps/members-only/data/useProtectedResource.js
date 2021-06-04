@@ -28,7 +28,6 @@ export const useProtectedResource = (url, defaultValue) => {
     loadResource();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [url]);
-  console.log(data);
 
   return { error, data, setData };
 };
