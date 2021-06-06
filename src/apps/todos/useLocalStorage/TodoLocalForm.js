@@ -7,19 +7,19 @@ const getRandomId = () => Math.random();
 const TodoLocalForm = ({ isEdit, setIsEdit }) => {
   const { todos, createTodo, updateTodo } = useLocalStorage();
   const [title, setTitle] = useState('');
-  const [showError, setShowError] = useState(false);
+  const [error, setError] = useState('');
 
-  const displayError = () => {
-    setShowError(true);
-    const clearTimer = setTimeout(() => setShowError(false), 3000);
+  const displayError = (err) => {
+    setError(err);
+    const clearTimer = setTimeout(() => setError(''), 3000);
     return () => clearTimeout(clearTimer);
   };
 
   const onCreateTodo = (e) => {
     e.preventDefault();
 
-    if (title === '') {
-      displayError();
+    if (title === '' || title.length < 2) {
+      displayError('Please enter a todo!');
       return;
     }
 
@@ -67,9 +67,9 @@ const TodoLocalForm = ({ isEdit, setIsEdit }) => {
           Save
         </Button>
       </Form>
-      {showError && (
-        <Alert variant="danger">
-          <Alert.Heading>Please enter a todo!</Alert.Heading>
+      {error && (
+        <Alert variant="danger" className="mt-2">
+          <Alert.Heading>{error}</Alert.Heading>
         </Alert>
       )}
     </>
