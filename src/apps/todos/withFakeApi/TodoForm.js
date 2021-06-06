@@ -1,15 +1,22 @@
-import React, { useEffect } from 'react';
-import { Button, Col, Form } from 'react-bootstrap';
+import React, { useEffect, useState } from 'react';
+import { Alert, Button, Col, Form } from 'react-bootstrap';
 import { useFakeApi } from './useFakeApi';
 
 const TodoForm = () => {
+  const [error, setError] = useState('');
   const { todo, title, setTodoTitle, createTodo, updateTodo } = useFakeApi();
+
+  const displayError = (err) => {
+    setError(err);
+    const clearTimer = setTimeout(() => setError(''), 3000);
+    return () => clearTimeout(clearTimer);
+  };
 
   const onCreateTodo = (e) => {
     e.preventDefault();
 
-    if (title === '') {
-      alert('Fill the form');
+    if (title === '' || title.length < 2) {
+      displayError('Please enter a todo!');
       return;
     }
 
@@ -28,28 +35,35 @@ const TodoForm = () => {
   }, [todo]);
 
   return (
-    <form
-      className="d-flex justify-content-center align-items-center mt-4"
-      onSubmit={onCreateTodo}
-    >
-      <Form.Group
-        as={Col}
-        controlId="text"
-        style={{ marginBottom: 0, paddingLeft: 0 }}
+    <>
+      <form
+        className="d-flex justify-content-center align-items-center mt-4"
+        onSubmit={onCreateTodo}
       >
-        <Form.Control
-          type="text"
-          name="title"
-          onChange={({ target }) => setTodoTitle(target.value)}
-          value={title}
-          placeholder="Things you wanna do..."
-          required
-        />
-      </Form.Group>
-      <Button type="submit" variant="light" className="todo-item">
-        Save
-      </Button>
-    </form>
+        <Form.Group
+          as={Col}
+          controlId="text"
+          style={{ marginBottom: 0, paddingLeft: 0 }}
+        >
+          <Form.Control
+            type="text"
+            name="title"
+            onChange={({ target }) => setTodoTitle(target.value)}
+            value={title}
+            placeholder="Things you wanna do..."
+            required
+          />
+        </Form.Group>
+        <Button type="submit" variant="light" className="todo-item">
+          Save
+        </Button>
+      </form>
+      {error && (
+        <Alert variant="danger" className="mt-2">
+          <Alert.Heading>{error}</Alert.Heading>
+        </Alert>
+      )}
+    </>
   );
 };
 
