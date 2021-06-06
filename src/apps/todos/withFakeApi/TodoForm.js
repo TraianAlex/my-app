@@ -1,22 +1,17 @@
 import React, { useEffect, useState } from 'react';
 import { Alert, Button, Col, Form } from 'react-bootstrap';
+import { displayError } from 'common/utils/utils';
 import { useFakeApi } from './useFakeApi';
 
 const TodoForm = () => {
   const [error, setError] = useState('');
   const { todo, title, setTodoTitle, createTodo, updateTodo } = useFakeApi();
 
-  const displayError = (err) => {
-    setError(err);
-    const clearTimer = setTimeout(() => setError(''), 3000);
-    return () => clearTimeout(clearTimer);
-  };
-
   const onCreateTodo = (e) => {
     e.preventDefault();
 
     if (title === '' || title.length < 2) {
-      displayError('Please enter a todo!');
+      displayError('Please enter a todo!', setError);
       return;
     }
 

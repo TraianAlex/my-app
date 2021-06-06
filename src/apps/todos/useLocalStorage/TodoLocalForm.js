@@ -1,30 +1,23 @@
 import React, { useEffect, useState } from 'react';
 import { Alert, Button, Col, Form } from 'react-bootstrap';
+import { displayError, generateId } from 'common/utils/utils';
 import { useLocalStorage } from './useLocalStorage';
-
-const getRandomId = () => Math.random();
 
 const TodoLocalForm = ({ isEdit, setIsEdit }) => {
   const { todos, createTodo, updateTodo } = useLocalStorage();
   const [title, setTitle] = useState('');
   const [error, setError] = useState('');
 
-  const displayError = (err) => {
-    setError(err);
-    const clearTimer = setTimeout(() => setError(''), 3000);
-    return () => clearTimeout(clearTimer);
-  };
-
   const onCreateTodo = (e) => {
     e.preventDefault();
 
     if (title === '' || title.length < 2) {
-      displayError('Please enter a todo!');
+      displayError('Please enter a todo!', setError);
       return;
     }
 
     const newTodo = {
-      id: getRandomId(),
+      id: generateId(todos),
       title,
       completed: false,
     };
