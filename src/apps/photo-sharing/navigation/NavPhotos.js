@@ -11,7 +11,7 @@ export const NavPhotos = ({ user }) => {
     <nav
       className={`photo-sharing d-flex ${
         user ? 'justify-content-between' : 'justify-content-center'
-      } pt-4 pb-1 border border-top-0 border-right-0 border-left-0`}
+      } pt-5 pb-4 border border-top-0 border-right-0 border-left-0`}
     >
       <Link to={user ? '/photo-sharing' : '/photo-sharing/sign-in'}>
         <h3 className="ml-2">Photo Sharing</h3>

@@ -18,7 +18,7 @@ export const UploadPhotoPage = () => {
     formData.append('title', titleValue);
     formData.append('file', selectedFile);
     await uploadFile('/upload', formData);
-    alert('Successfully uploaded photo!');
+    toast('Successfully uploaded photo!');
     history.push('/photo-sharing');
   };
 
