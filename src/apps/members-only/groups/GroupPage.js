@@ -8,14 +8,20 @@ import { RequestsList } from '../requests';
 
 export const GroupPage = () => {
   const [messageValue, setMessageValue] = useState('');
+  const [error, setError] = useState('');
   const history = useHistory();
   // @ts-ignore
   const { id } = useParams();
   const { user } = useUser();
-  const { error, data: group, setData: setGroup } = useProtectedResource(
-    `/groups/${id}`,
-    { owner: {}, messages: [], requests: [] },
-  );
+  const {
+    error: groupError,
+    data: group,
+    setData: setGroup,
+  } = useProtectedResource(`/groups/${id}`, {
+    owner: {},
+    messages: [],
+    requests: [],
+  });
 
   //const {messages, setMessages} = useProtectedResource(`/groups/${id}/messages`, []);
   //const {requests, setRequests} = useProtectedResource(`/groups/${id}/requests`, []);
@@ -29,9 +35,11 @@ export const GroupPage = () => {
       text: messageValue,
     });
     const updatedMessages = await response.json();
+    response.ok
+      ? setGroup({ ...group, messages: updatedMessages })
+      : setError(updatedMessages.message);
     //setMessages(updatedMessages);
-    setGroup({ ...group, messages: updatedMessages });
-    //setMessageValue('');
+    setMessageValue('');
   };
 
   const acceptRequest = async (requestId) => {
@@ -39,8 +47,10 @@ export const GroupPage = () => {
       `/groups/${id}/requests/${requestId}/accept`,
     );
     const updatedRequests = await response.json();
+    response.ok
+      ? setGroup({ ...group, requests: updatedRequests })
+      : setError(updatedRequests.message);
     //setRequests(updatedRequests);
-    setGroup({ ...group, requests: updatedRequests });
   };
 
   const rejectRequest = async (requestId) => {
@@ -48,24 +58,26 @@ export const GroupPage = () => {
       `/groups/${id}/requests/${requestId}/reject`,
     );
     const updatedRequests = await response.json();
+    response.ok
+      ? setGroup({ ...group, requests: updatedRequests })
+      : setError(updatedRequests.message);
     //setRequests(updatedRequests);
-    setGroup({ ...group, requests: updatedRequests });
   };
 
   useEffect(() => {
-    if (error) {
-      toast(error);
+    if (groupError || error) {
+      toast(groupError || error);
       history.push('/members-only');
     }
-  }, [error, history]);
+  }, [groupError, history, error]);
 
   return (
     <div
       className="members-only justify-content-center m-auto w-50 pt-3 pb-3 text-left"
       style={{ minHeight: '75vh' }}
     >
-      <h3>{group?.group?.name}</h3>
-      <p>Owned by: {group?.group?.ownerId.fullName}</p>
+      <h3>{group?.name}</h3>
+      <p>Owned by: {group?.owner.fullName}</p>
       <MessagesList messages={group.messages} />
       <div className="new-message-form">
         <input
@@ -78,7 +90,7 @@ export const GroupPage = () => {
           Submit
         </button>
       </div>
-      {group?.group?.ownerId.id === user.uid ? (
+      {group?.owner.id === user.uid ? (
         <RequestsList
           requests={group.requests}
           onAccept={acceptRequest}
@@ -88,3 +100,7 @@ export const GroupPage = () => {
     </div>
   );
 };
+
+// l 79 - group?.group?.name
+// l 80 - group?.group?.ownerId.fullName
+// l 92 - group?.group?.ownerId.id === user.uid

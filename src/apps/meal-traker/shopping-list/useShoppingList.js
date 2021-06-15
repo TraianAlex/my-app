@@ -10,7 +10,6 @@ export const useShoppingList = () => {
         `${process.env.REACT_APP_API_MEAL_TRACKER}/shopping-list`,
       );
       const items = await response.json();
-      console.log(items);
       setIsLoading(false);
       setItems(items);
     };

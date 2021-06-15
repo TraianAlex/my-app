@@ -7,7 +7,7 @@ const unitOptions = ['pounds', 'cups', 'tablespoons', 'teaspoons', 'count'];
 
 export const AddIngredientPage = () => {
   const [name, setName] = useState('');
-  const [amount, setAmount] = useState(null);
+  const [amount, setAmount] = useState(0);
   const [units, setUnits] = useState(unitOptions[0]);
   const history = useHistory();
 

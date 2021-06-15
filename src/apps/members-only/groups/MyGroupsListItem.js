@@ -7,8 +7,10 @@ export const MyGroupsListItem = ({ group }) => (
       <Link to={`/members-only/groups/${group._id}`}>
         <h3>{group.name}</h3>
       </Link>
-      <p>Owned By: {group.ownerId.fullName}</p>
+      <p>Owned By: {group.owner.fullName}</p>
       <p>{group.members.length} members</p>
     </div>
   </div>
 );
+
+// l 10 - group.ownerId.fullName

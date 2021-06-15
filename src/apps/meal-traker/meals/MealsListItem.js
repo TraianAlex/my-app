@@ -7,7 +7,7 @@ export const MealsListItem = ({ meal, date, onDelete }) => (
     {meal ? (
       <>
         <h3>{date.getDate()}</h3>
-        <p>{meal.recipeId.name}</p>
+        <p>{meal.recipe.name}</p>
         <div className="d-flex align-items-center justify-content-center">
           <SmallX onClick={() => onDelete(meal._id)} />
         </div>
@@ -25,3 +25,5 @@ export const MealsListItem = ({ meal, date, onDelete }) => (
     )}
   </div>
 );
+
+// l 10 - meal.recipeId.name

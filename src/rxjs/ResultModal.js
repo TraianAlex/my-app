@@ -5,7 +5,7 @@ import { useData } from '../common/hooks/Providers/DataProvider';
 import { useLocalData } from '../common/hooks/Providers/LocalDataProvider';
 import './ResultModal.scss';
 
-// Modal.setAppElement('#root');
+Modal.setAppElement('#root');
 
 export const ResultModal = (props) => {
   const [modalIsOpen, setModalIsOpen] = useState(false);
