@@ -45,13 +45,13 @@ export const PhotoDetailPage = () => {
     <p>Loading...</p>
   ) : (
     <div
-      className="photo-sharing justify-content-center m-auto"
+      className="photo-sharing justify-content-center m-auto py-3"
       style={{ minHeight: '75vh' }}
     >
-      <h2>{photo.title}</h2>
+      <h3>{photo.title}</h3>
       <img
         src={`${process.env.REACT_APP_API_PHOTOS_SHARING}${photo.url}`}
-        className="img-fluid mb-2"
+        className="img-fluid mb-4"
         width="750"
         alt={photo.title}
       />

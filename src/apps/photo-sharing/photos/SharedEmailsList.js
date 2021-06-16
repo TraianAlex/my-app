@@ -11,7 +11,7 @@ export const SharedEmailsList = ({ emails, onShare }) => {
           <p>{user.email}</p>
         </div>
       ))}
-      <div className="d-flex justify-content-center m-auto w-50">
+      <div className="d-flex justify-content-center m-auto pt-3 w-50">
         <input
           type="text"
           value={inviteEmailValue}

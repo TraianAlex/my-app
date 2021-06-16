@@ -17,8 +17,13 @@ export const UploadPhotoPage = () => {
     const formData = new FormData();
     formData.append('title', titleValue);
     formData.append('file', selectedFile);
-    await uploadFile('/upload', formData);
-    toast('Successfully uploaded photo!');
+    const response = await uploadFile('/upload', formData);
+    // @ts-ignore
+    const data = await response.json();
+    // @ts-ignore
+    if (response.ok) {
+      toast(data.message);
+    }
     history.push('/photo-sharing');
   };
 
