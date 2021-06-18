@@ -24,11 +24,11 @@ const firebaseConfig = {
 
 // if (!firebase.apps.length) {
 //   firebase.initializeApp(firebaseConfig);
-// }else {
+// } else {
 //   firebase.app();
 // }
 
 // export default firebase.initializeApp(firebaseConfig, 'photo-sharing');
-export default firebase.initializeApp(firebaseConfig, 'members-only');
+export default firebase.initializeApp(firebaseConfig);
 //export default firebase;
 firebase.analytics();

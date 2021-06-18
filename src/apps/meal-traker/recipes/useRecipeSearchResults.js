@@ -8,7 +8,7 @@ export const useRecipeSearchResults = (searchString) => {
     setIsLoading(true);
     const loadSearchResults = async () => {
       const response = await fetch(
-        `${process.env.REACT_APP_API_MEAL_TRACKER}/recipes?search=${searchString}`,
+        `${process.env.REACT_APP_API}/meal-tracker/recipes?search=${searchString}`,
       );
       const results = await response.json();
       setSearchResults(results);

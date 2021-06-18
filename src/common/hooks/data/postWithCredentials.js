@@ -1,4 +1,4 @@
-import firebase from '../firebase';
+import firebase from '../../firebase/firebase';
 
 export const postWithCredentials = async (url, bodyData) => {
   const user = firebase.auth().currentUser;
@@ -9,7 +9,7 @@ export const postWithCredentials = async (url, bodyData) => {
   }
 
   const response = await fetch(
-    `${process.env.REACT_APP_API_MEMBERS_ONLY}${url}`,
+    `${process.env.REACT_APP_API}${url}`,
     {
       method: 'post',
       body: JSON.stringify(bodyData),

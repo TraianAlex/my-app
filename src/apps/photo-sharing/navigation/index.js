@@ -1,1 +1,0 @@
-export { NavPhotos } from './NavPhotos';

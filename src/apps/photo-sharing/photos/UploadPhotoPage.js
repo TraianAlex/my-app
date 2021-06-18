@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
 import { useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { uploadFile } from '../data';
+import { uploadFile } from '../../../common/hooks/data';
 
 export const UploadPhotoPage = () => {
   const [titleValue, setTitleValue] = useState('');
@@ -17,7 +17,7 @@ export const UploadPhotoPage = () => {
     const formData = new FormData();
     formData.append('title', titleValue);
     formData.append('file', selectedFile);
-    const response = await uploadFile('/upload', formData);
+    const response = await uploadFile('/photo-sharing/upload', formData);
     // @ts-ignore
     const data = await response.json();
     // @ts-ignore

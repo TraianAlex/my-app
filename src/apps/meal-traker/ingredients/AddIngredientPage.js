@@ -17,7 +17,7 @@ export const AddIngredientPage = () => {
       return;
     }
     const newIngredient = { name, amount, units };
-    await fetch(`${process.env.REACT_APP_API_MEAL_TRACKER}/ingredients`, {
+    await fetch(`${process.env.REACT_APP_API}/meal-tracker/ingredients`, {
       method: 'post',
       body: JSON.stringify(newIngredient),
       headers: {

@@ -1,8 +1,9 @@
 import { useState, useEffect, useCallback } from 'react';
-import firebase from '../firebase';
+import firebase from '../../firebase/firebase';
 
 export const useProtectedResource = (url, defaultValue) => {
   const [data, setData] = useState(defaultValue);
+  const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState('');
 
   const loadResource = useCallback(async () => {
@@ -13,7 +14,7 @@ export const useProtectedResource = (url, defaultValue) => {
     }
 
     const response = await fetch(
-      `${process.env.REACT_APP_API_MEMBERS_ONLY}${url}`,
+      `${process.env.REACT_APP_API}${url}`,
       {
         headers: {
           AuthToken: await user.getIdToken(),
@@ -22,6 +23,7 @@ export const useProtectedResource = (url, defaultValue) => {
     );
     const data = await response.json();
     response.ok ? setData(data) : setError(data.message);
+    setIsLoading(false);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [url]);
 
@@ -31,5 +33,5 @@ export const useProtectedResource = (url, defaultValue) => {
     return resources;
   }, [loadResource]);
 
-  return { error, data, setData };
+  return { error, isLoading, data, setData };
 };

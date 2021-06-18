@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
-import { useUser } from '../auth';
-import { useProtectedResource, postWithCredentials } from '../data';
+import { useUser } from '../../../common/auth';
+import {
+  useProtectedResource,
+  postWithCredentials,
+} from '../../../common/hooks/data';
 import { MessagesList } from '../messages';
 import { RequestsList } from '../requests';
 
@@ -14,10 +17,11 @@ export const GroupPage = () => {
   const { id } = useParams();
   const { user } = useUser();
   const {
+    isLoading,
     error: groupError,
     data: group,
     setData: setGroup,
-  } = useProtectedResource(`/groups/${id}`, {
+  } = useProtectedResource(`/members-only/groups/${id}`, {
     owner: {},
     messages: [],
     requests: [],
@@ -31,9 +35,12 @@ export const GroupPage = () => {
       toast('Please type the message!');
       return;
     }
-    const response = await postWithCredentials(`/groups/${id}/messages`, {
-      text: messageValue,
-    });
+    const response = await postWithCredentials(
+      `/members-only/groups/${id}/messages`,
+      {
+        text: messageValue,
+      },
+    );
     const updatedMessages = await response.json();
     response.ok
       ? setGroup({ ...group, messages: updatedMessages })
@@ -44,7 +51,7 @@ export const GroupPage = () => {
 
   const acceptRequest = async (requestId) => {
     const response = await postWithCredentials(
-      `/groups/${id}/requests/${requestId}/accept`,
+      `/members-only/groups/${id}/requests/${requestId}/accept`,
     );
     const updatedRequests = await response.json();
     response.ok
@@ -55,7 +62,7 @@ export const GroupPage = () => {
 
   const rejectRequest = async (requestId) => {
     const response = await postWithCredentials(
-      `/groups/${id}/requests/${requestId}/reject`,
+      `/members-only/groups/${id}/requests/${requestId}/reject`,
     );
     const updatedRequests = await response.json();
     response.ok
@@ -76,27 +83,33 @@ export const GroupPage = () => {
       className="members-only justify-content-center m-auto w-50 pt-3 pb-3 text-left"
       style={{ minHeight: '75vh' }}
     >
-      <h3>{group?.name}</h3>
-      <p>Owned by: {group?.owner.fullName}</p>
-      <MessagesList messages={group.messages} />
-      <div className="new-message-form">
-        <input
-          type="text"
-          placeholder="Type your message here..."
-          value={messageValue}
-          onChange={(e) => setMessageValue(e.target.value)}
-        />
-        <button className="ml-2" onClick={postMessage}>
-          Submit
-        </button>
-      </div>
-      {group?.owner.id === user.uid ? (
-        <RequestsList
-          requests={group.requests}
-          onAccept={acceptRequest}
-          onReject={rejectRequest}
-        />
-      ) : null}
+      {isLoading ? (
+        <p>Loading...</p>
+      ) : (
+        <>
+          <h3>{group?.name}</h3>
+          <p>Owned by: {group?.owner.fullName}</p>
+          <MessagesList messages={group.messages} />
+          <div className="new-message-form">
+            <input
+              type="text"
+              placeholder="Type your message here..."
+              value={messageValue}
+              onChange={(e) => setMessageValue(e.target.value)}
+            />
+            <button className="ml-2" onClick={postMessage}>
+              Submit
+            </button>
+          </div>
+          {group?.owner.id === user.uid ? (
+            <RequestsList
+              requests={group.requests}
+              onAccept={acceptRequest}
+              onReject={rejectRequest}
+            />
+          ) : null}
+        </>
+      )}
     </div>
   );
 };

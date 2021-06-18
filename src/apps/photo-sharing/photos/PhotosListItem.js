@@ -7,7 +7,7 @@ export const PhotosListItem = ({ photo }) => {
       <div className="photos-list-item-wrap">
         <img
           className="photos-list-item"
-          src={`${process.env.REACT_APP_API_PHOTOS_SHARING}${photo.url}`}
+          src={`${process.env.REACT_APP_API}/photo-sharing${photo.url}`}
           height="200"
           width="200"
           alt={photo.title}

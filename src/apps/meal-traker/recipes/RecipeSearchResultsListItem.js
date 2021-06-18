@@ -15,7 +15,7 @@ export const RecipeSearchResultsListItem = ({ recipe, ingredients = [] }) => {
   );
 
   const addMealWithRecipe = async () => {
-    await fetch(`${process.env.REACT_APP_API_MEAL_TRACKER}/meals`, {
+    await fetch(`${process.env.REACT_APP_API}/meal-tracker/meals`, {
       method: 'post',
       body: JSON.stringify({ date: selectedDate, recipeId: recipe._id }),
       headers: { 'Content-Type': 'application/json' },

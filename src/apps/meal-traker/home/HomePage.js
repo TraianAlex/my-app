@@ -14,7 +14,7 @@ export const HomePage = () => {
 
   const onDeleteMeal = async (id) => {
     const response = await fetch(
-      `${process.env.REACT_APP_API_MEAL_TRACKER}/meals/${id}`,
+      `${process.env.REACT_APP_API}/meal-tracker/meals/${id}`,
       { method: 'delete' },
     );
     const updatedMeals = await response.json();
@@ -23,7 +23,7 @@ export const HomePage = () => {
 
   const onDeleteIngredient = async (name) => {
     const response = await fetch(
-      `${process.env.REACT_APP_API_MEAL_TRACKER}/ingredients/${name}`,
+      `${process.env.REACT_APP_API}/meal-tracker/ingredients/${name}`,
       { method: 'delete' },
     );
     const updatedIngredients = await response.json();

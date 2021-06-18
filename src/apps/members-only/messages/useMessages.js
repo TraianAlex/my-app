@@ -1,16 +1,19 @@
 import { useState, useEffect } from 'react';
-import firebase from '../firebase';
+import firebase from '../../../common/firebase/firebase';
 
 export const useMessages = (id) => {
   const [messages, setMessages] = useState([]);
 
   const loadMessages = async () => {
     const user = firebase.auth().currentUser;
-    const response = await fetch(`/groups/${id}/messages`, {
-      headers: {
-        AuthToken: await user.getIdToken(),
+    const response = await fetch(
+      `${process.env.REACT_APP_API}/members-only/groups/${id}/messages`,
+      {
+        headers: {
+          AuthToken: await user.getIdToken(),
+        },
       },
-    });
+    );
     const messages = await response.json();
     setMessages(messages);
   };

@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import firebase from '../firebase';
+import firebase from '../../../common/firebase/firebase';
 
 export const useUserGroups = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -14,7 +14,7 @@ export const useUserGroups = () => {
     }
 
     const response = await fetch(
-      `${process.env.REACT_APP_API_MEMBERS_ONLY}/users/${user.uid}/groups`,
+      `${process.env.REACT_APP_API}/members-only/users/${user.uid}/groups`,
       {
         headers: {
           AuthToken: await user.getIdToken(),
@@ -28,7 +28,7 @@ export const useUserGroups = () => {
 
   useEffect(() => {
     loadGroups();
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return { isLoading, userGroups };

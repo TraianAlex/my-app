@@ -1,16 +1,16 @@
 import React from 'react';
 import '../photo-sharing.scss';
-import { useProtectedResource } from '../data';
+import { useProtectedResource } from '../../../common/hooks/data';
 import { MyPhotosList } from './MyPhotosList';
 import { SharedPhotosList } from './SharedPhotosList';
 
 export const BrowsePhotosPage = () => {
   const { isLoading: isLoadingMyPhotos, data: myPhotos } = useProtectedResource(
-    `/my-photos`,
+    `/photo-sharing/my-photos`,
     [],
   );
   const { isLoading: isLoadingSharedPhotos, data: sharedPhotos } =
-    useProtectedResource(`/shared`, []);
+    useProtectedResource(`/photo-sharing/shared`, []);
 
   return (
     <div className="photo-sharing" style={{ minHeight: '70vh' }}>

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { useHistory } from 'react-router-dom';
-import firebase from '../firebase';
+import firebase from '../firebase/firebase';
 
 export const SignInPage = () => {
   const [emailValue, setEmailValue] = useState('');
@@ -21,8 +21,9 @@ export const SignInPage = () => {
   };
 
   return (
-    <div className="members-only mt-5 pt-5" style={{ minHeight: '70vh' }}>
+    <div className="members-only mt-5 pt-5" style={{ minHeight: '80vh' }}>
       <div className="justify-content-center m-auto w-50">
+        <h3 className="my-5">Sign in</h3>
         {signInError ? (
           <div>
             <p className="bg-danger p-1 rounded-lg">{signInError}</p>

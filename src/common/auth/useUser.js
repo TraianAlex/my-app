@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
-import firebase from '../firebase';
+import firebase from '../firebase/firebase';
 
-export const useUserPhotos = () => {
+export const useUser = () => {
   const [userInfo, setUserInfo] = useState(() => {
     const user = firebase.auth().currentUser;
     const isLoading = !user;

@@ -2,8 +2,11 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useProtectedResource, postWithCredentials } from '../data';
-import { useUserPhotos } from '../auth';
+import { useUser } from 'common/auth';
+import {
+  useProtectedResource,
+  postWithCredentials,
+} from '../../../common/hooks/data';
 import { SharedEmailsList } from './SharedEmailsList';
 
 export const PhotoDetailPage = () => {
@@ -16,8 +19,8 @@ export const PhotoDetailPage = () => {
     isLoading,
     data: photo,
     setData: setPhoto,
-  } = useProtectedResource(`/photos/${id}`, {});
-  const { user } = useUserPhotos();
+  } = useProtectedResource(`/photo-sharing/photos/${id}`, {});
+  const { user } = useUser();
   const userIsOwner = user.uid === photo?.ownerId?.id;
 
   const shareWithEmail = async (email) => {
@@ -25,9 +28,12 @@ export const PhotoDetailPage = () => {
       toast('Please insert an email!');
       return;
     }
-    const response = await postWithCredentials(`/photos/${id}/shared-with`, {
-      email,
-    });
+    const response = await postWithCredentials(
+      `/photo-sharing/photos/${id}/shared-with`,
+      {
+        email,
+      },
+    );
     // @ts-ignore
     const updatedPhoto = await response.json();
     // @ts-ignore
@@ -50,7 +56,7 @@ export const PhotoDetailPage = () => {
     >
       <h3>{photo.title}</h3>
       <img
-        src={`${process.env.REACT_APP_API_PHOTOS_SHARING}${photo.url}`}
+        src={`${process.env.REACT_APP_API}/photo-sharing${photo.url}`}
         className="img-fluid mb-4"
         width="750"
         alt={photo.title}

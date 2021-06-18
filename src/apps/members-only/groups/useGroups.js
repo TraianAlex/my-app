@@ -6,7 +6,7 @@ export const useGroups = () => {
 
   const loadGroups = async () => {
     const response = await fetch(
-      `${process.env.REACT_APP_API_MEMBERS_ONLY}/groups`,
+      `${process.env.REACT_APP_API}/members-only/groups`,
     );
     const groupsRes = await response.json();
     setGroups(groupsRes);

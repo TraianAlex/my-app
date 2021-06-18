@@ -7,7 +7,7 @@ export const useShoppingList = () => {
   useEffect(() => {
     const loadShoppingList = async () => {
       const response = await fetch(
-        `${process.env.REACT_APP_API_MEAL_TRACKER}/shopping-list`,
+        `${process.env.REACT_APP_API}/meal-tracker/shopping-list`,
       );
       const items = await response.json();
       setIsLoading(false);
