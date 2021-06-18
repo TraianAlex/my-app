@@ -1,20 +1,35 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useHistory } from 'react-router-dom';
+import { toast } from 'react-toastify';
 import '../members-only.scss';
+import { useUser } from 'common/auth';
+import { useProtectedResource } from 'common/hooks/data';
 import { GroupsList } from './GroupsList';
 import { GroupsListItem } from './GroupsListItem';
 import { MyGroupsListItem } from './MyGroupsListItem';
 import { useGroups } from './useGroups';
-import { useUserGroups } from './useUserGroups';
 
 export const GroupsListPage = () => {
+  const history = useHistory();
+  const { user } = useUser();
   const { isLoading: isLoadingAllGroups, groups: allGroups } = useGroups();
-  const { isLoading: isLoadingUserGroups, userGroups } = useUserGroups();
+  const {
+    error,
+    isLoading: isLoadingUserGroups,
+    data: userGroups,
+  } = useProtectedResource(`/members-only/users/${user.uid}/groups`, []);
   const isLoading = isLoadingAllGroups && isLoadingUserGroups;
 
   const notUserGroups = allGroups.filter((group) =>
     userGroups.every((userGroup) => userGroup._id !== group._id),
   );
+
+  useEffect(() => {
+    if (error) {
+      toast(error);
+      history.push('/sign-in');
+    }
+  }, [error, history]);
 
   return (
     <div

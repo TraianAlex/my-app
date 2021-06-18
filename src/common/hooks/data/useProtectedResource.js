@@ -13,18 +13,15 @@ export const useProtectedResource = (url, defaultValue) => {
       return;
     }
 
-    const response = await fetch(
-      `${process.env.REACT_APP_API}${url}`,
-      {
-        headers: {
-          AuthToken: await user.getIdToken(),
-        },
+    const response = await fetch(`${process.env.REACT_APP_API}${url}`, {
+      headers: {
+        AuthToken: await user.getIdToken(),
       },
-    );
+    });
     const data = await response.json();
     response.ok ? setData(data) : setError(data.message);
     setIsLoading(false);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [url]);
 
   // @ts-ignore
