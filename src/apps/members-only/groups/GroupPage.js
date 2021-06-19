@@ -27,9 +27,6 @@ export const GroupPage = () => {
     requests: [],
   });
 
-  //const {data: messages, setData: setMessages} = useProtectedResource(`/members-only/groups/${id}/messages`, []);
-  //const {data: requests, setData: setRequests} = useProtectedResource(`/members-only/groups/${id}/requests`, []);
-
   const postMessage = async () => {
     if (!messageValue) {
       toast('Please type the message!');
@@ -45,7 +42,6 @@ export const GroupPage = () => {
     response.ok
       ? setGroup({ ...group, messages: updatedMessages })
       : setError(updatedMessages.message);
-    //setMessages(updatedMessages);
     setMessageValue('');
   };
 
@@ -57,7 +53,6 @@ export const GroupPage = () => {
     response.ok
       ? setGroup({ ...group, requests: updatedRequests })
       : setError(updatedRequests.message);
-    //setRequests(updatedRequests);
   };
 
   const rejectRequest = async (requestId) => {
@@ -68,7 +63,6 @@ export const GroupPage = () => {
     response.ok
       ? setGroup({ ...group, requests: updatedRequests })
       : setError(updatedRequests.message);
-    //setRequests(updatedRequests);
   };
 
   useEffect(() => {
