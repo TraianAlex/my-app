@@ -21,6 +21,14 @@ export const GroupsListItem = ({ group }) => {
     setHasRequest(true);
   };
 
+  const cancelRequest = async () => {
+    await postWithCredentials(`/members-only/cancel/request`, {
+      groupId: group._id,
+    });
+    toast('Your request has been canceled');
+    setHasRequest(false);
+  };
+
   useEffect(() => {
     const requestsGroupIds = requests?.map((request) => request.groupId);
     console.log(requestsGroupIds);
@@ -38,7 +46,11 @@ export const GroupsListItem = ({ group }) => {
             <p>Owned by: {group.owner.fullName}</p>
             <p>{group.members.length} members</p>
           </div>
-          <button className="ml-3" onClick={requestToJoin}>
+          <button
+            className="ml-3"
+            onClick={requestToJoin}
+            onDoubleClick={cancelRequest}
+          >
             {hasRequest ? 'Request Pending' : 'Ask to Join'}
           </button>
         </>
