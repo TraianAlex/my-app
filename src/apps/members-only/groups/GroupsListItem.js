@@ -22,8 +22,9 @@ export const GroupsListItem = ({ group }) => {
   };
 
   useEffect(() => {
-    const requestsIds = requests?.map((group) => group.groupId);
-    setHasRequest(requestsIds?.includes(group._id));
+    const requestsGroupIds = requests?.map((request) => request.groupId);
+    console.log(requestsGroupIds);
+    setHasRequest(requestsGroupIds?.includes(group._id));
   }, [group._id, requests]);
 
   return (

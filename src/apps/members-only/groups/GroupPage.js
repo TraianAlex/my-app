@@ -27,8 +27,8 @@ export const GroupPage = () => {
     requests: [],
   });
 
-  //const {messages, setMessages} = useProtectedResource(`/groups/${id}/messages`, []);
-  //const {requests, setRequests} = useProtectedResource(`/groups/${id}/requests`, []);
+  //const {data: messages, setData: setMessages} = useProtectedResource(`/members-only/groups/${id}/messages`, []);
+  //const {data: requests, setData: setRequests} = useProtectedResource(`/members-only/groups/${id}/requests`, []);
 
   const postMessage = async () => {
     if (!messageValue) {
