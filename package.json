@@ -26,6 +26,7 @@
     "resolve-url-loader": "^3.1.2",
     "rxjs": "^6.6.3",
     "semver": "7.3.5",
+    "styled-components": "^5.3.0",
     "uuid": "^3.3.3"
   },
   "devDependencies": {

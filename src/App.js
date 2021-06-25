@@ -16,7 +16,6 @@ import { DataProvider } from './common/hooks/Providers/DataProvider';
 import { StarMatch } from './games/star-match/StarMatch';
 import { NotFoundPage } from './common/components/NotFoundPage';
 import {
-  CreateGroupPage,
   GroupPage,
   GroupsListPage,
 } from './apps/members-only/groups';
@@ -74,13 +73,6 @@ const App = () => {
               isAuthed={!!user}
               path="/members-only/groups/:id"
               component={GroupPage}
-              exact
-            />
-            <PrivateRoute
-              isLoading={isLoading}
-              isAuthed={!!user}
-              path="/members-only/create-group"
-              component={CreateGroupPage}
               exact
             />
             <PrivateRoute

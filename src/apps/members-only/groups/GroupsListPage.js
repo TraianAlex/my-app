@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { Suspense, useEffect, useState } from 'react';
 import { Link, useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import '../members-only.scss';
@@ -8,8 +8,10 @@ import { GroupsList } from './GroupsList';
 import { GroupsListItem } from './GroupsListItem';
 import { MyGroupsListItem } from './MyGroupsListItem';
 import { useGroups } from './useGroups';
+import { CreateGroupModal } from './CreateGroupModal';
 
 export const GroupsListPage = () => {
+  const [isCreateOpen, setIsCreateOpen] = useState(false);
   const history = useHistory();
   const { user } = useUser();
   const { isLoading: isLoadingAllGroups, groups: allGroups } = useGroups();
@@ -50,9 +52,17 @@ export const GroupsListPage = () => {
           ListItemComponent={GroupsListItem}
         />
       </div>
-      <Link to="/members-only/create-group" className="mt-3 mb-3">
-        <button>Create New Group</button>
+      <Link to="#" className="mt-3 mb-3">
+        <button onClick={() => setIsCreateOpen(true)}>Create New Group</button>
       </Link>
+      {isCreateOpen && (
+        <Suspense fallback={'Loading...'}>
+          <CreateGroupModal
+            isOpen={isCreateOpen}
+            onClose={() => setIsCreateOpen(false)}
+          />
+        </Suspense>
+      )}
     </div>
   );
 };
