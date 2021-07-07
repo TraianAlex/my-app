@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Alert, Button, Col, Form } from 'react-bootstrap';
-import { displayError } from 'common/utils/utils';
+import { displayError } from '../../../common/utils/utils';
 import { useFakeApi } from './useFakeApi';
 
 const TodoForm = () => {

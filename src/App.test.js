@@ -1,10 +1,12 @@
 // @ts-nocheck
 import React from 'react';
-import { render } from '@testing-library/react';
+import { render, screen } from '@testing-library/react';
+import { act } from 'react-dom/test-utils';
 import App from './App';
 
-test('renders learn react link', () => {
-  const { getByText } = render(<App />);
-  const linkElement = getByText(/good/i);
-  expect(linkElement).toBeInTheDocument();
+it('render landing page', () => {
+  act(() => render(<App />));
+
+  const label = screen.getByText(/Max difference in labels:/i);
+  expect(label).toBeInTheDocument();
 });

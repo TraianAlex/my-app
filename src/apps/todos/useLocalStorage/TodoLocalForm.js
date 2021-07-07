@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Alert, Button, Col, Form } from 'react-bootstrap';
-import { displayError, generateId } from 'common/utils/utils';
+import { displayError, generateId } from '../../../common/utils/utils';
 import { useLocalStorage } from './useLocalStorage';
 
 const TodoLocalForm = ({ isEdit, setIsEdit }) => {

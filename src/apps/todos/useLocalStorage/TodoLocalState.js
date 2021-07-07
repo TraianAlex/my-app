@@ -1,5 +1,5 @@
 import React, { useMemo } from 'react';
-import { useLocalStorageState } from 'common/utils/use-local-stotage';
+import { useLocalStorageState } from '../../../common/utils/use-local-stotage';
 import TodoLocalContext from '../Context';
 
 const TodoLocalState = ({ children }) => {

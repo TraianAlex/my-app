@@ -24,9 +24,9 @@ import {
   BrowsePhotosPage,
   PhotoDetailPage,
   UploadPhotoPage,
-} from 'apps/photo-sharing/photos';
+} from './apps/photo-sharing/photos';
 import { GitHubCard } from './apps/GitHubCard/GitHubCard';
-import { GithubSearch } from 'apps/github-search/GithubSearch';
+import { GithubSearch } from './apps/github-search/GithubSearch';
 
 toast.configure();
 

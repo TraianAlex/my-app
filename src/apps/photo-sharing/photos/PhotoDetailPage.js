@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useUser } from 'common/auth';
+import { useUser } from '../../../common/auth';
 import {
   useProtectedResource,
   postWithCredentials,
