@@ -41,6 +41,7 @@ const TodoLocalForm = ({ isEdit, setIsEdit }) => {
       <Form
         className="d-flex justify-content-center align-items-center mt-4"
         onSubmit={onCreateTodo}
+        data-testid="todo-form"
       >
         <Form.Group
           as={Col}
@@ -50,18 +51,24 @@ const TodoLocalForm = ({ isEdit, setIsEdit }) => {
           <Form.Control
             type="text"
             name="title"
+            data-testid="todo-input"
             onChange={({ target }) => setTitle(target.value)}
             value={title}
             placeholder="Things you wanna do..."
             required
           />
         </Form.Group>
-        <Button type="submit" variant="light" className="todo-item">
+        <Button
+          type="submit"
+          role="submit"
+          variant="light"
+          className="todo-item"
+        >
           Save
         </Button>
       </Form>
       {error && (
-        <Alert variant="danger" className="mt-2">
+        <Alert variant="danger" className="mt-2" data-testid="todo-error">
           <Alert.Heading>{error}</Alert.Heading>
         </Alert>
       )}

@@ -31,4 +31,4 @@ const firebaseConfig = {
 // export default firebase.initializeApp(firebaseConfig, 'photo-sharing');
 export default firebase.initializeApp(firebaseConfig);
 //export default firebase;
-firebase.analytics();
+firebase.analytics.isSupported();
