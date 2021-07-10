@@ -2,10 +2,7 @@
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
-import TodoLocalState from '../useLocalStorage/TodoLocalState';
 import { TodoApp } from '../TodoApp';
-// import * as display from '../../../common/utils/utils';
-// import { displayError } from '../../../common/utils/utils';
 
 describe('<TodoApp />', () => {
   it('Renders without crashing', () => {
@@ -32,16 +29,10 @@ describe('<TodoApp />', () => {
 
   describe('Adding items', () => {
     it('When the Save button is pressed, if the input field is empty, prevent item from being added', () => {
-      const { getByRole, getByTestId } = render(
-        <TodoLocalState>
-          <TodoApp />
-        </TodoLocalState>,
-      );
+      const { getByRole, getByTestId } = render(<TodoApp />);
 
       const form = getByTestId('todo-form');
       const input = getByTestId('todo-input');
-
-      // const displayError = jest.spyOn(display, 'displayError');
 
       userEvent.type(input, 'a');
       fireEvent.click(getByRole('submit'));
@@ -52,7 +43,6 @@ describe('<TodoApp />', () => {
       const error = getByTestId('todo-error');
       expect(error).toBeInTheDocument();
       expect(error).toHaveTextContent('Please enter a todo!');
-      //expect(onCreateTodo).toHaveBeenCalled();
     });
 
     it('When the save button is pressed, if the input field has text, it creates a new todo item', () => {
