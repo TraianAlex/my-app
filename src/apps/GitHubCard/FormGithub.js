@@ -1,9 +1,10 @@
 import React from 'react';
 import { Button, Form, Row } from 'react-bootstrap';
+import styled from 'styled-components';
 
 export const FormGithub = ({ userName, setUsername, handleSubmit }) => {
   return (
-    <>
+    <FormStyled>
       <Row className="justify-content-center mb-2">
         <small>
           Try{' '}
@@ -55,6 +56,23 @@ export const FormGithub = ({ userName, setUsername, handleSubmit }) => {
         </Form.Group>
         <Button onClick={handleSubmit}>Add card</Button>
       </Form>
-    </>
+    </FormStyled>
   );
 };
+
+const FormStyled = styled.div`
+  .invisible-button {
+    vertical-align: top;
+    border: none;
+    padding: inherit;
+    font-size: inherit;
+    font-family: inherit;
+    cursor: pointer;
+    font-weight: inherit;
+    background-color: transparent;
+    color: #000;
+    &:hover {
+      background-color: transparent;
+    }
+  }
+`;

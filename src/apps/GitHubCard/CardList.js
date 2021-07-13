@@ -10,8 +10,8 @@ export const CardList = ({ profiles }) => (
 
 const Card = ({ avatar_url, name, company }) => {
   return (
-    <div className="github-profile m-2">
-      <img alt="user" src={avatar_url} />
+    <div className="github-profile m-2" style={{ fontSize: 'font-size: 1.25rem'}}>
+      <img alt="user" src={avatar_url} style={{ width: '5em'}} />
       <div className="d-inline-block ml-3">
         <div className="font-weight-bold">{name}</div>
         <div className="font-weight-bold">{company}</div>
