@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 export const useGitApi = () => {
   const [profiles, setProfiles] = useState([]);
@@ -8,7 +9,8 @@ export const useGitApi = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     if (!userName) {
-      alert('Fill the form!');
+      toast('Fill the form!');
+      return;
     }
     const { data } = await axios.get(
       `https://api.github.com/users/${userName}`,
