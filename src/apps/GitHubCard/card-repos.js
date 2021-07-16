@@ -1,10 +1,10 @@
 import React from 'react';
 import { Card } from 'react-bootstrap';
 
-export const CardRepos = ({ repo }) => (
+export const CardRepos = ({ repo, repoCard }) => (
   <Card
     style={{
-      width: '19.3rem',
+      width: repoCard ? '19.6rem' : '42.5rem',
       minHeight: '120px',
       fontSize: '0.7rem',
     }}
@@ -15,11 +15,12 @@ export const CardRepos = ({ repo }) => (
         {repo.name}
       </Card.Link>
       <Card.Text>
-        <Card.Text>{repo.description}</Card.Text>
+        {repoCard && <Card.Text>{repo.description}</Card.Text>}
         <span
           className="repo-language-color"
           style={{
             marginRight: '0.7em',
+            marginTop: repoCard ? '0' : '1rem',
             backgroundColor: '#f1e05a',
           }}
         ></span>
