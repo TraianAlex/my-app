@@ -4,7 +4,7 @@ import { Card } from 'react-bootstrap';
 export const CardRepos = ({ repo, repoCard }) => (
   <Card
     style={{
-      width: repoCard ? '19.6rem' : '42.5rem',
+      width: repoCard ? '19.4rem' : '42.5rem',
       minHeight: '120px',
       fontSize: '0.7rem',
     }}
