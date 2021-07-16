@@ -11,6 +11,14 @@ export const FormGithub = ({ userName, setUsername, handleSubmit }) => {
           <Button
             variant="light"
             className="invisible-button"
+            onClick={() => setUsername('TraianAlex')}
+          >
+            "TraianAlex"
+          </Button>
+          {', '}
+          <Button
+            variant="light"
+            className="invisible-button"
             onClick={() => setUsername('gaearon')}
           >
             "gaearon"
