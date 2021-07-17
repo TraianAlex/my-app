@@ -1,6 +1,6 @@
 import React from 'react';
 import { Alert } from 'react-bootstrap';
-import Loader from './Loader';
+import Loader from '../../../common/components/Loader';
 import SortButtons from './SortButtons';
 import { useProfile } from '../store/useProfile';
 import { ProfileCard } from './ProfileCard';

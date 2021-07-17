@@ -169,6 +169,7 @@ const LeftSection = styled.div`
 `;
 
 const RightSection = styled.div`
+  --color-repo-language-color-border: rgba(27,31,35,0.1);
   display: flex;
   flex-direction: column;
   flex-wrap: wrap;
@@ -180,6 +181,7 @@ const RightSection = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
+    justify-content: space-between;
   }
 
   .repo-language-color {

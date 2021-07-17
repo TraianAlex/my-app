@@ -5,6 +5,7 @@ export const CardRepos = ({ repo, repoCard }) => (
   <Card
     style={{
       flexBasis: repoCard ? '19.4rem' : '42.5rem',
+      minWidth: repoCard ? 0 : '-moz-available',
       fontSize: '0.7rem',
     }}
     className="m-3 shadow"
