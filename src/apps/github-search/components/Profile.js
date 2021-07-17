@@ -1,5 +1,6 @@
 import React from 'react';
 import { Alert } from 'react-bootstrap';
+import styled from 'styled-components';
 import Loader from '../../../common/components/Loader';
 import SortButtons from './SortButtons';
 import { useProfile } from '../store/useProfile';
@@ -31,11 +32,11 @@ export function Profile() {
       </div>
       {isCard && <SortButtons />}
       {isCard ? (
-        profile.map((row) => (
-          <div key={row.id} className="d-inline-block">
-            <ProfileCard row={row} />
-          </div>
-        ))
+        <CardsSection>
+          {profile.map((row) => (
+            <ProfileCard row={row} key={row.id} />
+          ))}
+        </CardsSection>
       ) : (
         <ProfileTable />
       )}
@@ -44,3 +45,15 @@ export function Profile() {
 }
 
 export default Profile;
+
+const CardsSection = styled.div`
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  div:nth-child(odd) {
+    flex: auto;
+  }
+  div:nth-child(even) {
+    flex: auto;
+  }
+`;

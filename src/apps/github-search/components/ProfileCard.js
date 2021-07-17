@@ -3,7 +3,7 @@ import { Card, Col, Row } from 'react-bootstrap';
 
 export const ProfileCard = ({ row }) => (
   <Card
-    style={{ width: '16.5rem', minHeight: '220px', fontSize: '0.7rem' }}
+    style={{ flexBasis: '16.5rem', minHeight: '220px', fontSize: '0.7rem' }}
     className="m-3 shadow"
   >
     <Card.Body>
