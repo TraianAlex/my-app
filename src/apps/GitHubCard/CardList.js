@@ -182,6 +182,12 @@ const RightSection = styled.div`
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-between;
+    div:nth-child(odd) {
+      flex: auto;
+    }
+    div:nth-child(even) {
+      flex: auto;
+    }
   }
 
   .repo-language-color {
