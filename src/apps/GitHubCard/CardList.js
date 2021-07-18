@@ -14,7 +14,7 @@ import {
   projectsSvg,
   reposSvg,
   starSvg,
-} from 'common/utils/svg';
+} from '../../common/utils/svg';
 
 export const CardList = ({ profiles }) => (
   <>
