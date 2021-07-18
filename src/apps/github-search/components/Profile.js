@@ -48,7 +48,6 @@ export default Profile;
 
 const CardsSection = styled.div`
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
   div:nth-child(odd) {
     flex: auto;

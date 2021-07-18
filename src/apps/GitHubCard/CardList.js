@@ -181,7 +181,6 @@ const RightSection = styled.div`
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
     div:nth-child(odd) {
       flex: auto;
     }
