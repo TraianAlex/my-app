@@ -4,7 +4,9 @@ import { Card } from 'react-bootstrap';
 export const CardRepos = ({ repo, repoCard }) => (
   <Card
     style={{
-      flexBasis: repoCard ? '19.4rem' : '42.5rem',
+      //flexBasis: repoCard ? '19.3rem' : '42.5rem',
+      width: repoCard ? '45%' : '100%',
+      flex: 'auto',
       minWidth: repoCard ? 0 : '-moz-available',
       fontSize: '0.7rem',
     }}
