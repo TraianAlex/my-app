@@ -62,7 +62,7 @@ const TodoLocalForm = ({ isEdit, setIsEdit }) => {
           type="submit"
           role="submit"
           variant="light"
-          className="todo-item"
+          className="todo-item rotate-center"
         >
           Save
         </Button>
