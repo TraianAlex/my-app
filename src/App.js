@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import './App.css';
@@ -15,10 +15,7 @@ import { GameXO } from './games/x-o/x-o';
 import { DataProvider } from './common/hooks/Providers/DataProvider';
 import { StarMatch } from './games/star-match/StarMatch';
 import { NotFoundPage } from './common/components/NotFoundPage';
-import {
-  GroupPage,
-  GroupsListPage,
-} from './apps/members-only/groups';
+import { GroupPage, GroupsListPage } from './apps/members-only/groups';
 import { SignInPage } from './common/auth';
 import {
   BrowsePhotosPage,
@@ -27,17 +24,25 @@ import {
 } from './apps/photo-sharing/photos';
 import { GitHubCard } from './apps/GitHubCard/GitHubCard';
 import { GithubSearch } from './apps/github-search/GithubSearch';
+import { SideNav } from './layout/SideNav';
 
 toast.configure();
 
 const App = () => {
   const { isLoading, user } = useUser();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toggleNav = (e) => {
+    e.preventDefault();
+    setIsOpen(!isOpen);
+  };
 
   return (
     <div className="App">
       <DataProvider>
         <BrowserRouter>
-          <Navigation />
+          <Navigation toggleNav={toggleNav} />
+          <SideNav isOpen={isOpen} />
           <ToastContainer />
           <Switch>
             <Redirect from="/cards" to="/" />

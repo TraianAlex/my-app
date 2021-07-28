@@ -4,15 +4,13 @@ import { LinkContainer } from 'react-router-bootstrap';
 // @ts-ignore
 import logo from '../logo.svg';
 
-export const Navigation = () => {
+export const Navigation = ({toggleNav}) => {
   return (
     <header className="mb-5">
       <Navbar bg="dark" variant="dark" expand="lg" fixed={'top'} collapseOnSelect>
-        <LinkContainer to="/">
-          <Navbar.Brand>
-            <img src={logo} className="App-logo" alt="logo" />
-          </Navbar.Brand>
-        </LinkContainer>
+        <Navbar.Brand onClick={toggleNav}>
+          <img src={logo} className="App-logo" alt="logo" />
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="mr-auto">

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import Modal from 'react-modal';
 import Confetti from 'react-confetti';
 import { Button } from 'react-bootstrap';
+import { toast } from 'react-toastify';
 
 Modal.setAppElement('#root');
 
@@ -11,7 +12,7 @@ export default function AddModal({ isOpen, onAdd, onClose }) {
 
   const handleClickAdd = () => {
     if (!cardText || cardText.length > 300) {
-      alert('Max 300 chars!');
+      toast('Max 300 chars!');
       return;
     }
     onAdd(cardText);
