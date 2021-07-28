@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import fetcher from 'common/utils/fetcher';
 
 export const useRecipeSearchResults = (searchString) => {
   const [isLoading, setIsLoading] = useState(false);
@@ -7,10 +8,9 @@ export const useRecipeSearchResults = (searchString) => {
   useEffect(() => {
     setIsLoading(true);
     const loadSearchResults = async () => {
-      const response = await fetch(
+      const results = await fetcher(
         `${process.env.REACT_APP_API}/meal-tracker/recipes?search=${searchString}`,
       );
-      const results = await response.json();
       setSearchResults(results);
       setIsLoading(false);
     };

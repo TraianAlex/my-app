@@ -24,7 +24,7 @@ export const AddIngredientPage = () => {
         'Content-Type': 'application/json',
       },
     });
-    console.log('Successfully added ingredient!');
+    toast('Successfully added ingredient!');
     history.push('/meal-tracker');
   };
 

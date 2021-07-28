@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import fetcher from 'common/utils/fetcher';
 
 export const useIngredients = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -6,10 +7,9 @@ export const useIngredients = () => {
 
   const loadIngredients = async () => {
     setIsLoading(true);
-    const response = await fetch(
+    const ingredients = await fetcher(
       `${process.env.REACT_APP_API}/meal-tracker/ingredients`,
     );
-    const ingredients = await response.json();
     setIngredients(ingredients);
     setIsLoading(false);
   };
