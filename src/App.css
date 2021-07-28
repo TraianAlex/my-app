@@ -53,3 +53,14 @@
     transform: rotate(360deg);
   }
 }
+
+@keyframes shadow-drop-2-center {
+  0% {
+    transform: translateZ(0);
+    box-shadow: 0 0 0 0 transparent;
+  }
+  100% {
+    transform: translateZ(50px);
+    box-shadow: rgba(0, 0, 0, 0.4) 1px 1px 1px;
+  }
+}

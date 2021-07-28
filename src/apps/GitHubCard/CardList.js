@@ -59,7 +59,7 @@ const CardComp = ({
   return (
     <CardSection>
       <LeftSection>
-        <img alt="user" src={avatar_url} style={{ width: '9em' }} />
+        <img alt="user" src={avatar_url} style={{ width: '9em', clipPath: 'circle(50% at 50% 50%)' }} />
         <div className="font-weight-bold mt-1">{name}</div>
         <div className="login">{login}</div>
         <div className="bio">{bio}</div>
