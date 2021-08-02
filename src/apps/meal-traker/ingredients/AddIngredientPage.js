@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useHistory } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { useSetState } from 'common/hooks/useSetState';
 import { BackButton, Dropdown } from '../ui';
 
 const unitOptions = ['pounds', 'cups', 'tablespoons', 'teaspoons', 'count'];
 
 export const AddIngredientPage = () => {
-  const [name, setName] = useState('');
-  const [amount, setAmount] = useState(0);
-  const [units, setUnits] = useState(unitOptions[0]);
+  const [{ name, amount, units }, setState] = useSetState({
+    name: '',
+    amount: 0,
+    units: unitOptions[0],
+  });
   const history = useHistory();
 
   const addToIngredients = async () => {
@@ -38,17 +41,17 @@ export const AddIngredientPage = () => {
           placeholder="Enter ingredient name here"
           className="d-block w-100 mt-3"
           value={name}
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => setState({ name: e.target.value })}
         />
         <input
           type="number"
           className="d-block w-100 mt-3"
           value={amount}
-          onChange={(e) => setAmount(Number(e.target.value))}
+          onChange={(e) => setState({ amount: Number(e.target.value) })}
         />
         <Dropdown
           className="d-block w-100 mt-3"
-          onChange={(e) => setUnits(e.target.value)}
+          onChange={(e) => setState({ units: e.target.value })}
           options={unitOptions}
         />
         <button className="d-block w-100 mt-3" onClick={addToIngredients}>

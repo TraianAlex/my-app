@@ -1,14 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Modal from 'react-modal';
 import Confetti from 'react-confetti';
 import { Button } from 'react-bootstrap';
 import { toast } from 'react-toastify';
+import { useSetState } from 'common/hooks/useSetState';
 
 Modal.setAppElement('#root');
 
 export default function AddModal({ isOpen, onAdd, onClose }) {
-  const [cardText, setCardText] = useState('');
-  const [isDone, setIsDone] = useState(false);
+  const [{ cardText, isDone }, setState] = useSetState({
+    cardText: '',
+    isDone: false,
+  });
 
   const handleClickAdd = () => {
     if (!cardText || cardText.length > 300) {
@@ -16,7 +19,7 @@ export default function AddModal({ isOpen, onAdd, onClose }) {
       return;
     }
     onAdd(cardText);
-    setIsDone(true);
+    setState({ isDone: true });
   };
 
   if (isDone) {
@@ -83,7 +86,7 @@ export default function AddModal({ isOpen, onAdd, onClose }) {
               marginTop: 5,
             }}
             value={cardText}
-            onChange={(ev) => setCardText(ev.currentTarget.value)}
+            onChange={(ev) => setState({ cardText: ev.target.value })}
           />
 
           <Button
