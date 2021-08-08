@@ -25,6 +25,7 @@ import {
 import { GitHubCard } from './apps/GitHubCard/GitHubCard';
 import { GithubSearch } from './apps/github-search/GithubSearch';
 import { SideNav } from './layout/SideNav';
+import { DashboardStocks } from 'apps/stock-trading/dashboard';
 
 toast.configure();
 
@@ -105,6 +106,7 @@ const App = () => {
             <Route path="/star-match" component={StarMatch} exact />
             <Route path="/github-search" component={GithubSearch} exact />
             <Route path="/github-card" component={GitHubCard} exact />
+            <Route path="/stocks" component={DashboardStocks} exact />
             <Route component={NotFoundPage} />
           </Switch>
         </BrowserRouter>

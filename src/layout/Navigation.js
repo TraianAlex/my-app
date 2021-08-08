@@ -45,6 +45,9 @@ export const Navigation = ({toggleNav}) => {
               <LinkContainer to="/photo-sharing">
                 <NavDropdown.Item>Photo Sharing</NavDropdown.Item>
               </LinkContainer>
+              <LinkContainer to="/stocks">
+                <NavDropdown.Item>Stock Trading</NavDropdown.Item>
+              </LinkContainer>
             </NavDropdown>
             <NavDropdown
               title="Games"
