@@ -12,13 +12,13 @@ export const DashboardStocks = () => {
   const stockHistory = useStockHistory();
   const prices = Object.values(stockHistory);
 
-  const buyShares = async () => {
-    if (numberOfSharesValue === 0) {
+  const processRequest = async (route) => {
+    if (numberOfSharesValue <= 0) {
       toast('No shares added');
       return;
     }
     const response = await fetch(
-      `${process.env.REACT_APP_API}/stock-trading/stocks/buy`,
+      `${process.env.REACT_APP_API}/stock-trading/stocks/${route}`,
       {
         method: 'post',
         body: JSON.stringify({ numberOfShares: numberOfSharesValue }),
@@ -27,28 +27,13 @@ export const DashboardStocks = () => {
     );
     const updatedUserInfo = await response.json();
     setUserInfo(updatedUserInfo);
-    toast(`Successfully bought ${numberOfSharesValue} shares of TSLA`);
+    toast(`Successfully processed ${numberOfSharesValue} shares of TSLA`);
     setNumberOfSharesValue(0);
   };
 
-  const sellShares = async () => {
-    if (numberOfSharesValue === 0) {
-      toast('No shares sold');
-      return;
-    }
-    const response = await fetch(
-      `${process.env.REACT_APP_API}/stock-trading//stocks/sell`,
-      {
-        method: 'post',
-        body: JSON.stringify({ numberOfShares: numberOfSharesValue }),
-        headers: { 'Content-Type': 'application/json' },
-      },
-    );
-    const updatedUserInfo = await response.json();
-    setUserInfo(updatedUserInfo);
-    toast(`Successfully sold ${numberOfSharesValue} shares of TSLA`);
-    setNumberOfSharesValue(0);
-  };
+  const buyShares = () => processRequest('buy');
+
+  const sellShares = () => processRequest('sell');
 
   return (
     <div className="stocks">
