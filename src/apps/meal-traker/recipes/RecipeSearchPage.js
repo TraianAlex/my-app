@@ -10,9 +10,9 @@ export const RecipeSearchPage = () => {
   const { ingredients } = useIngredients();
   const { searchResults } = useRecipeSearchResults(searchString);
 
-  const onSearchClicked = () => {
-    setSearchString(searchInputValue);
-  };
+  const onSearchClicked = () => setSearchString(searchInputValue);
+
+  const handleChange = (e) => setSearchInputValue(e.target.value);
 
   return (
     <div className="meal-tracker">
@@ -24,7 +24,7 @@ export const RecipeSearchPage = () => {
           className="d-block w-100 mt-3 mb-3"
           placeholder="Enter keyword here"
           value={searchInputValue}
-          onChange={(e) => setSearchInputValue(e.target.value)}
+          onChange={handleChange}
         />
         <button className="d-block w-100 mb-3" onClick={onSearchClicked}>
           Search

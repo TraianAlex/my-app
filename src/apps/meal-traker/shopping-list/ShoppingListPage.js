@@ -15,6 +15,9 @@ export const ShoppingListPage = () => {
         ) : (
           items.map((item) => <p key={item}>{item}</p>)
         )}
+        {!isLoading && items.length === 0 && (
+          <p>There are no ingredients to buy!</p>
+        )}
       </div>
     </div>
   );
