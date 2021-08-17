@@ -20,7 +20,7 @@ export const useGitApi = () => {
   };
 
   const addNewProfile = (profileData) =>
-    setProfiles((prevState) => [...prevState, profileData]);
+    setProfiles((prevState) => [profileData, ...prevState]);
 
   return [profiles, userName, setUsername, handleSubmit];
 };
