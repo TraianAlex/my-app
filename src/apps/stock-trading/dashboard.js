@@ -26,8 +26,12 @@ export const DashboardStocks = () => {
       },
     );
     const updatedUserInfo = await response.json();
-    setUserInfo(updatedUserInfo);
-    toast(`Successfully processed ${numberOfSharesValue} shares of TSLA`);
+    if (response.ok) {
+      setUserInfo(updatedUserInfo);
+      toast(`Successfully processed ${numberOfSharesValue} shares of TSLA`);
+    } else {
+      toast(updatedUserInfo.message);
+    }
     setNumberOfSharesValue(0);
   };
 
