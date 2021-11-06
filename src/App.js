@@ -114,7 +114,8 @@ const App = () => {
           className="d-flex align-items-center justify-content-center bg-dark text-white"
           style={{ minHeight: '14.6vh' }}
         >
-          © Copyright 2021 Traian Alexandru - All Rights Reserved
+          © Copyright {new Date().getFullYear()} Traian Alexandru - All Rights
+          Reserved
         </footer>
       </DataProvider>
     </div>
