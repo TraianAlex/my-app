@@ -3,21 +3,21 @@ import { Redirect, Route } from 'react-router-dom';
 import { useUser } from '.';
 import { NavMembers } from '../navigation';
 
-export const PrivateRoute = ({ isAuthed, isLoading, ...props }) => {
-  const { user } = useUser();
+export const PrivateRoute = ({ path, component, exact }) => {
+  const { isLoading, user } = useUser();
 
   if (isLoading) {
     return <div>Loading...</div>;
   }
 
-  if (!isAuthed) {
+  if (!user) {
     return <Redirect to="/sign-in" />;
   }
 
   return (
     <>
       <NavMembers user={user} />
-      <Route {...props} />
+      <Route path={path} component={component} exact={exact} />
     </>
   );
 };

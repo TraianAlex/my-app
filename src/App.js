@@ -9,7 +9,7 @@ import { HomePage as MealTracker } from './apps/meal-traker/home';
 import { AddIngredientPage } from './apps/meal-traker/ingredients';
 import { RecipeSearchPage } from './apps/meal-traker/recipes';
 import { ShoppingListPage } from './apps/meal-traker/shopping-list';
-import { PrivateRoute, useUser } from './common/auth';
+import { PrivateRoute } from './common/auth';
 import { TodoApp } from './apps/todos/TodoApp';
 import { GameXO } from './games/x-o/x-o';
 import { DataProvider } from './common/hooks/Providers/DataProvider';
@@ -30,7 +30,6 @@ import { DashboardStocks } from 'apps/stock-trading/dashboard';
 toast.configure();
 
 const App = () => {
-  const { isLoading, user } = useUser();
   const [isOpen, setIsOpen] = useState(false);
 
   const toggleNav = (e) => {
@@ -68,36 +67,26 @@ const App = () => {
             />
             <Route path="/sign-in" component={SignInPage} exact />
             <PrivateRoute
-              isLoading={isLoading}
-              isAuthed={!!user}
               path="/members-only"
               component={GroupsListPage}
               exact
             />
             <PrivateRoute
-              isLoading={isLoading}
-              isAuthed={!!user}
               path="/members-only/groups/:id"
               component={GroupPage}
               exact
             />
             <PrivateRoute
-              isLoading={isLoading}
-              isAuthed={!!user}
               path="/photo-sharing"
               component={BrowsePhotosPage}
               exact
             />
             <PrivateRoute
-              isLoading={isLoading}
-              isAuthed={!!user}
               path="/photo-sharing/upload-photo"
               component={UploadPhotoPage}
               exact
             />
             <PrivateRoute
-              isLoading={isLoading}
-              isAuthed={!!user}
               path="/photo-sharing/photos/:id"
               component={PhotoDetailPage}
               exact
