@@ -76,6 +76,9 @@ export const Navigation = ({toggleNav}) => {
               <LinkContainer to="/github-card" className="d-flex flex-column align-items-center">
                 <NavDropdown.Item>Github Card</NavDropdown.Item>
               </LinkContainer>
+              <LinkContainer to="/google-sheet" className="d-flex flex-column align-items-center">
+                <NavDropdown.Item>Google sheet</NavDropdown.Item>
+              </LinkContainer>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
