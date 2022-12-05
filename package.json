@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@rehooks/component-size": "^1.0.3",
-    "axios": "^0.21.1",
+    "axios": "^0.21.2",
     "bootstrap": "^4.4.1",
     "camelcase": "^6.2.0",
     "firebase": "^8.2.10",
