@@ -1,5 +1,5 @@
 import React, { Suspense, useEffect, useState } from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import '../members-only.scss';
 import { useUser } from '../../../common/auth';
@@ -12,7 +12,7 @@ import { CreateGroupModal } from './CreateGroupModal';
 
 export const GroupsListPage = () => {
   const [isCreateOpen, setIsCreateOpen] = useState(false);
-  const history = useHistory();
+  const navigate = useNavigate();
   const { user } = useUser();
   const { isLoading: isLoadingAllGroups, groups: allGroups } = useGroups();
   const {
@@ -29,9 +29,9 @@ export const GroupsListPage = () => {
   useEffect(() => {
     if (error) {
       toast(error);
-      history.push('/sign-in');
+      navigate('/sign-in');
     }
-  }, [error, history]);
+  }, [error, navigate]);
 
   return (
     <div

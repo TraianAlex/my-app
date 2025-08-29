@@ -1,6 +1,5 @@
 import React from 'react';
 import Modal from 'react-modal';
-import Confetti from 'react-confetti';
 import { Button } from 'react-bootstrap';
 import { toast } from 'react-toastify';
 import { useSetState } from 'common/hooks/useSetState';
@@ -45,7 +44,6 @@ export default function AddModal({ isOpen, onAdd, onClose }) {
     >
       {isDone && (
         <div>
-          <Confetti width={245} height={265} />
           <h2>
             Done{' '}
             <span role="img" aria-label="check">

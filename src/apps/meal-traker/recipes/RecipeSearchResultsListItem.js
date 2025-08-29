@@ -1,8 +1,8 @@
 import React from 'react';
-import { useLocation, useHistory } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 export const RecipeSearchResultsListItem = ({ recipe, ingredients = [] }) => {
-  const history = useHistory();
+  const navigate = useNavigate();
   const { search } = useLocation();
   const params = new URLSearchParams(search);
   const selectedDate = new Date(params.get('date'));
@@ -20,7 +20,7 @@ export const RecipeSearchResultsListItem = ({ recipe, ingredients = [] }) => {
       body: JSON.stringify({ date: selectedDate, recipeId: recipe._id }),
       headers: { 'Content-Type': 'application/json' },
     });
-    history.push('/meal-tracker');
+    navigate('/meal-tracker');
   };
 
   return (

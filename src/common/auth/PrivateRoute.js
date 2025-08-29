@@ -1,9 +1,9 @@
 import React from 'react';
-import { Redirect, Route } from 'react-router-dom';
+import { Navigate } from 'react-router-dom';
 import { useUser } from '.';
 import { NavMembers } from '../navigation';
 
-export const PrivateRoute = ({ path, component, exact }) => {
+export const PrivateRoute = ({ children }) => {
   const { isLoading, user } = useUser();
 
   if (isLoading) {
@@ -11,13 +11,13 @@ export const PrivateRoute = ({ path, component, exact }) => {
   }
 
   if (!user) {
-    return <Redirect to="/sign-in" />;
+    return <Navigate to="/sign-in" replace />;
   }
 
   return (
     <>
       <NavMembers user={user} />
-      <Route path={path} component={component} exact={exact} />
+      {children}
     </>
   );
 };

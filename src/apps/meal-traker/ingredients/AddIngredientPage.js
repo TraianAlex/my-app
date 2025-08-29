@@ -1,5 +1,5 @@
 import React from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useSetState } from 'common/hooks/useSetState';
 import { BackButton, Dropdown } from '../ui';
@@ -12,7 +12,7 @@ export const AddIngredientPage = () => {
     amount: 0,
     units: unitOptions[0],
   });
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const addToIngredients = async () => {
     if (!name || !amount || !units) {
@@ -28,7 +28,7 @@ export const AddIngredientPage = () => {
       },
     });
     toast('Successfully added ingredient!');
-    history.push('/meal-tracker');
+    navigate('/meal-tracker');
   };
 
   return (

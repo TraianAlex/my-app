@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import { toast, ToastContainer } from 'react-toastify';
 import './App.css';
 import { Navigation } from './layout/Navigation';
@@ -45,61 +45,73 @@ const App = () => {
           <Navigation toggleNav={toggleNav} />
           <SideNav isOpen={isOpen} />
           <ToastContainer />
-          <Switch>
-            <Redirect from="/cards" to="/" />
-            <Route path="/" component={Cards} exact />
-            <Route path="/todo" component={TodoApp} exact />
-            <Route path="/results" component={Results} exact />
-            <Route path="/meal-tracker" component={MealTracker} exact />
+          <Routes>
+            <Route path="/" element={<Cards />} />
+            <Route path="/todo" element={<TodoApp />} />
+            <Route path="/results" element={<Results />} />
+            <Route path="/meal-tracker" element={<MealTracker />} />
             <Route
               path="/meal-tracker/add-ingredient"
-              component={AddIngredientPage}
-              exact
+              element={<AddIngredientPage />}
             />
             <Route
               path="/meal-tracker/recipes"
-              component={RecipeSearchPage}
-              exact
+              element={<RecipeSearchPage />}
             />
             <Route
               path="/meal-tracker/shopping-list"
-              component={ShoppingListPage}
-              exact
+              element={<ShoppingListPage />}
             />
-            <Route path="/sign-in" component={SignInPage} exact />
-            <PrivateRoute
+            <Route path="/sign-in" element={<SignInPage />} />
+            <Route
               path="/members-only"
-              component={GroupsListPage}
-              exact
+              element={
+                <PrivateRoute>
+                  <GroupsListPage />
+                </PrivateRoute>
+              }
             />
-            <PrivateRoute
+            <Route
               path="/members-only/groups/:id"
-              component={GroupPage}
-              exact
+              element={
+                <PrivateRoute>
+                  <GroupPage />
+                </PrivateRoute>
+              }
             />
-            <PrivateRoute
+            <Route
               path="/photo-sharing"
-              component={BrowsePhotosPage}
-              exact
+              element={
+                <PrivateRoute>
+                  <BrowsePhotosPage />
+                </PrivateRoute>
+              }
             />
-            <PrivateRoute
+            <Route
               path="/photo-sharing/upload-photo"
-              component={UploadPhotoPage}
-              exact
+              element={
+                <PrivateRoute>
+                  <UploadPhotoPage />
+                </PrivateRoute>
+              }
             />
-            <PrivateRoute
+            <Route
               path="/photo-sharing/photos/:id"
-              component={PhotoDetailPage}
-              exact
+              element={
+                <PrivateRoute>
+                  <PhotoDetailPage />
+                </PrivateRoute>
+              }
             />
-            <Route path="/x-o" component={GameXO} exact />
-            <Route path="/star-match" component={StarMatch} exact />
-            <Route path="/github-search" component={GithubSearch} exact />
-            <Route path="/github-card" component={GitHubCard} exact />
-            <Route path="/stocks" component={DashboardStocks} exact />
-            <Route path="/google-sheet" component={GoogleSheet} exact />
-            <Route component={NotFoundPage} />
-          </Switch>
+            <Route path="/x-o" element={<GameXO />} />
+            <Route path="/star-match" element={<StarMatch />} />
+            <Route path="/github-search" element={<GithubSearch />} />
+            <Route path="/github-card" element={<GitHubCard />} />
+            <Route path="/stocks" element={<DashboardStocks />} />
+            <Route path="/google-sheet" element={<GoogleSheet />} />
+            <Route path="/cards" element={<Navigate to="/" replace />} />
+            <Route path="*" element={<NotFoundPage />} />
+          </Routes>
         </BrowserRouter>
         <footer
           className="d-flex align-items-center justify-content-center bg-dark text-white"

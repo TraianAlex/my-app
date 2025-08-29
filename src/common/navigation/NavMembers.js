@@ -1,13 +1,13 @@
 import React from 'react';
-import { Link, useHistory } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import firebase from '../firebase/firebase';
 
 export const NavMembers = ({ user }) => {
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const onClickSignOut = async () => {
     firebase.auth().signOut();
-    history.push('/sign-in');
+    navigate('/sign-in');
   };
 
   return (
