@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useParams, useHistory } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useUser } from '../../../common/auth';
@@ -10,7 +10,7 @@ import {
 import { SharedEmailsList } from './SharedEmailsList';
 
 export const PhotoDetailPage = () => {
-  const history = useHistory();
+  const navigate = useNavigate();
   // @ts-ignore
   const { id } = useParams();
   const [errorShare, setErrorShare] = useState('');
@@ -43,9 +43,9 @@ export const PhotoDetailPage = () => {
   useEffect(() => {
     if (error || errorShare) {
       toast(error || errorShare);
-      history.push('/photo-sharing');
+      navigate('/photo-sharing');
     }
-  }, [error, errorShare, history]);
+  }, [error, errorShare, navigate]);
 
   return isLoading ? (
     <p>Loading...</p>

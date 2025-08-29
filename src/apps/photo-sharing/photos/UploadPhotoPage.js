@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import { Form } from 'react-bootstrap';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { uploadFile } from '../../../common/hooks/data';
 
 export const UploadPhotoPage = () => {
   const [titleValue, setTitleValue] = useState('');
   const [selectedFile, setSelectedFile] = useState(null);
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const beginUpload = async () => {
     if (!titleValue || !selectedFile) {
@@ -24,7 +24,7 @@ export const UploadPhotoPage = () => {
     if (response.ok) {
       toast(data.message);
     }
-    history.push('/photo-sharing');
+    navigate('/photo-sharing');
   };
 
   return (

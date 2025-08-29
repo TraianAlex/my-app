@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { useHistory, useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import { useUser } from '../../../common/auth';
 import {
@@ -12,7 +12,7 @@ import { RequestsList } from '../requests';
 export const GroupPage = () => {
   const [messageValue, setMessageValue] = useState('');
   const [error, setError] = useState('');
-  const history = useHistory();
+  const navigate = useNavigate();
   // @ts-ignore
   const { id } = useParams();
   const { user } = useUser();
@@ -68,9 +68,9 @@ export const GroupPage = () => {
   useEffect(() => {
     if (groupError || error) {
       toast(groupError || error);
-      history.push('/members-only');
+      navigate('/members-only');
     }
-  }, [groupError, history, error]);
+  }, [groupError, navigate, error]);
 
   return (
     <div

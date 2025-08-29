@@ -1,19 +1,19 @@
 import React, { useState } from 'react';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import firebase from '../firebase/firebase';
 import { useFormValidation } from './useFormValidation';
 import { validateAuth } from './validateAuth';
 
 export const SignInPage = () => {
   const [signInError, setSignInError] = useState('');
-  const history = useHistory();
+  const navigate = useNavigate();
   const authUser = async () => {
     try {
       setSignInError('');
       await firebase
         .auth()
         .signInWithEmailAndPassword(values.email, values.password);
-      history.push('/members-only');
+      navigate('/members-only');
     } catch (e) {
       setSignInError(e.message);
     }

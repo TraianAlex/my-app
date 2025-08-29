@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import Modal from 'react-modal';
-import { useHistory } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import styled from 'styled-components';
 import { postWithCredentials } from '../../../common/hooks/data/postWithCredentials';
 
 export const CreateGroupModal = ({ isOpen, onClose }) => {
   const [nameValue, setNameValue] = useState('');
-  const history = useHistory();
+  const navigate = useNavigate();
 
   const createGroup = async () => {
     if (!nameValue) {
@@ -18,7 +18,7 @@ export const CreateGroupModal = ({ isOpen, onClose }) => {
       name: nameValue,
     });
     const { newGroupId } = await response.json();
-    history.push(`/members-only/groups/${newGroupId}`);
+    navigate(`/members-only/groups/${newGroupId}`);
   };
 
   return (

@@ -1,7 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import { Nav } from 'react-bootstrap';
-import { LinkContainer } from 'react-router-bootstrap';
+import { Link } from 'react-router-dom';
 
 export const SideNav = ({ isOpen }) => {
   return (
@@ -9,15 +8,16 @@ export const SideNav = ({ isOpen }) => {
       className={isOpen && 'is-open'}
       aria-hidden={isOpen ? 'true' : 'false'}
     >
-      <a href="/">{''}</a>
-      <a href="/">{''}</a>
-      <LinkContainer to="/cards">
-        <Nav.Link>Cards</Nav.Link>
-      </LinkContainer>
-      <a href="/todo">Todo</a>
-      <a href="/github-card">Github Card</a>
-      <a href="/#">Link4</a>
-      <a href="/#">Link5</a>
+      <Link to="/">Cards</Link>
+      <Link to="/todo">Todo</Link>
+      <Link to="/github-card">Github Card</Link>
+      <Link to="/results">Results</Link>
+      <Link to="/meal-tracker">Meal Tracker</Link>
+      <Link to="/x-o">X-O Game</Link>
+      <Link to="/star-match">Star Match</Link>
+      <Link to="/github-search">GitHub Search</Link>
+      <Link to="/stocks">Stocks</Link>
+      <Link to="/google-sheet">Google Sheet</Link>
     </SideDiv>
   );
 };
