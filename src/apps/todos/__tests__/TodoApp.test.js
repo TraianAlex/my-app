@@ -1,7 +1,6 @@
 // @ts-nocheck
 import React from 'react';
 import { render, fireEvent } from '@testing-library/react';
-import userEvent from '@testing-library/user-event';
 import { TodoApp } from '../TodoApp';
 
 describe('<TodoApp />', () => {
@@ -34,7 +33,9 @@ describe('<TodoApp />', () => {
       const form = getByTestId('todo-form');
       const input = getByTestId('todo-input');
 
-      userEvent.type(input, 'a');
+      // Prefer fireEvent over userEvent: jest-environment-jsdom-fourteen
+      // lacks Document.getSelection required by @testing-library/user-event@14.
+      fireEvent.change(input, { target: { value: 'a' } });
       fireEvent.click(getByRole('submit'));
 
       expect(input).toBeRequired();

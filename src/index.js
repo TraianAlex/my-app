@@ -5,7 +5,6 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-// React 18: Use createRoot instead of render
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(<App />);
 
